@@ -65,7 +65,7 @@
             name: d.grant_title,
             org: d.organization,
             group: d.group,
-            year: d.start_year,
+            year: d.start_year, // לשנות את זה לחלוקה בין גברים ונשים
             x: Math.random() * 900,
             y: Math.random() * 800
           };

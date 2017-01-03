@@ -11,9 +11,9 @@ a, a:visited, a:active {
 
 
 #view_selection {
-    position: fixed;
+    position: relative;
     top: 47%;
-    left: 46%;
+    left: 41%;
 }
 
 .years {
