@@ -23,7 +23,7 @@ a, a:visited, a:active {
 }
 
 .background {
-    background: url(../src/images/backgroud.jpeg) no-repeat center center fixed;
+    background: url(../images/backgroud.jpeg) no-repeat center center fixed;
     background-size: cover;
 }
 
