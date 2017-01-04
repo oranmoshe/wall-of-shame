@@ -4,25 +4,32 @@
   <meta charset="utf-8">
   <title>Wall Of Shame</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="./src/css/reset.css">
+<!--  <link rel="stylesheet" href="./src/css/reset.css">-->
   <link rel="stylesheet" href="./src/css/bubble_chart.css">
+  <link rel="stylesheet" href="./src/css/bootstrap.min.css">
 </head>
-<body>
-  <div class="container">
+<body class="wordsOfShame">
+  <main>
+<!--
     <header>
         <h1>Wall Of Shame</h1>
     </header>
+-->
 
     <div id="vis"></div>
 
-    <footer>
-        <div id="toolbar">
-          <a href="#" id="all" class="button active">אוסף המילים</a>
-<!--          <a href="#" id="year" class="button">חלוקה לפי מין</a>-->
-        </div>
-    </footer>
-  </div>
 
+  </main>
+  <footer>
+    <div class="row">
+        <div class="col-xs-1">
+            <a href="#" id="all" class="allGender"></a>
+        </div>
+        <div class="col-xs-1">
+            <a href="#" id="year" class="button"></a>
+        </div>
+    </div>
+  </footer>
   <script src="src/lib/d3.js"></script>
   <script src="src/js/tooltip.js"></script>
   <script src="src/js/bubble_chart.js"></script>

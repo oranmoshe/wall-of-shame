@@ -53,7 +53,7 @@ function bubbleChart() {
   var force = d3.layout.force()
     .size([width, height])
     .charge(charge)
-    .gravity(-0.03)
+    .gravity(-0.01)
     .friction(0.9);
 
 

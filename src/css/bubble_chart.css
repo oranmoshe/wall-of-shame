@@ -1,61 +1,73 @@
-a, a:visited, a:active {
-  color: #444;
+* {
+    margin: 0;
+    padding: 0;
+}
+/*
+@font-face {
+    font-family: MEODED-SERIF_OEBOLD;
+    src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
+}
+*/
+@font-face {
+    font-family: SabonItalicOsFRegular;
+    src: url('./fonts/SABON-ITALIC-OLDSTYLE-FIGURES.TTF');
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
+main {
+    max-width: 900px;
 }
 
-.button {
-  min-width: 130px;
-  padding: 4px 5px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 13px;
-  border: 1px solid #e0e0e0;
-  text-decoration: none;
+.allGender {
+    background: url('../images/2sex_icon.png') no-repeat;
+    width: 100%;
+    height: 60px;
+    display: block;
+    cursor: pointer;
 }
-
-.button.active {
-  background: #000;
-  color: #fff;
+.row {
+    margin: 0 !important;
 }
-
+.col-xs-1 {
+    position: relative;
+    left: 44%;
+    top: 26px;
+}
 .background {
-    background: url(../images/backgroud.jpeg) no-repeat center center fixed;
-    background-size: cover;
+    background: url(../images/background.png) no-repeat center center fixed;
+    background-size: 100% 100%;
 }
 
 #vis {
-  width: 940px;
-  height: 600px;
-  clear: both;
-  margin-bottom: 10px;
+    width: 940px;
+    height: 600px;
+    position: relative;
+    top: 50px;
+    left: 16%;
 }
 
 #toolbar {
-    position: absolute;
-    top: 55%;
-    left: 47%;
+    position: relative;
+    left:46%;
+    top: 65px;
+    float: left;
 }
 
 .year {
-  font-size: 21px;
-  fill: #aaa;
-  cursor: default;
+    font-size: 21px;
+    fill: #aaa;
+    cursor: default;
 }
 
 .tooltip {
-	position: absolute;
-	top: 100px;
+    position: absolute;
+    top: 100px;
 	left: 100px;
-  -moz-border-radius:5px;
+    -moz-border-radius:5px;
 	border-radius: 5px;
-  border: 2px solid #000;
-  background: #fff;
+    border: 2px solid #000;
+    background: #fff;
 	opacity: .9;
-  color: black;
+    color: black;
 	padding: 10px;
 	width: 300px;
 	font-size: 12px;
@@ -67,5 +79,42 @@ a, a:visited, a:active {
 }
 
 .tooltip .name {
-  font-weight:bold;
+    font-weight:bold;
+}
+
+.SeeTheWall {
+    background: url('../images/seethewall.png') no-repeat;
+    width: 9%;
+    height: 100px;
+    position: relative;
+    top: 204px;
+    float: left;
+    cursor: pointer;
+    color: #525B86;
+}
+.wordsOfShame {
+    background: url(../images/wallOfShame.png) no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+.logo {
+    background: url('../images/homeScreen-logo.png') no-repeat;
+    width: 100%;
+    height: 480px;
+    background-attachment: fixed;
+    background-position: center;
+}
+.page-header {
+    border-bottom: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    float: left;
+    position: relative;
+    top: 150px;
+    left: 38%;
+}
+.page-header > h1 {
+    font-size: 43px;
+    color: #525B86;
+    font-family: SabonItalicOsFRegular;
+    font-weight: normal;
 }
