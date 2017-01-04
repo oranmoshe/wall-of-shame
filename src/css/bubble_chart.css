@@ -2,6 +2,31 @@ a, a:visited, a:active {
   color: #444;
 }
 
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.button {
+  min-width: 130px;
+  padding: 4px 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+}
+
+.button.active {
+  background: #000;
+  color: #fff;
+}
+
+.background {
+    background: url(../images/backgroud.jpeg) no-repeat center center fixed;
+    background-size: cover;
+}
+
 #vis {
   width: 940px;
   height: 600px;
@@ -9,16 +34,16 @@ a, a:visited, a:active {
   margin-bottom: 10px;
 }
 
-
-#view_selection {
-    position: relative;
-    top: 47%;
-    left: 41%;
+#toolbar {
+    position: absolute;
+    top: 55%;
+    left: 47%;
 }
 
-.years {
+.year {
   font-size: 21px;
   fill: #aaa;
+  cursor: default;
 }
 
 .tooltip {
@@ -28,10 +53,8 @@ a, a:visited, a:active {
   -moz-border-radius:5px;
 	border-radius: 5px;
   border: 2px solid #000;
-	/* background: #222222; */
   background: #fff;
 	opacity: .9;
-	/* color: #eeeeee; */
   color: black;
 	padding: 10px;
 	width: 300px;
@@ -46,4 +69,3 @@ a, a:visited, a:active {
 .tooltip .name {
   font-weight:bold;
 }
-
