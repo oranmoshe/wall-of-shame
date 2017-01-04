@@ -3,32 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bubble_chart.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Wall Of Shame</title>
 </head>
 
-<body>
-  <div id="container" class="container">
+<body class="background">
+  <div id="container">
     <header>
-        <h1>Wall Of Shame</h1>
     </header>
-    <div id="main" role="main">
-      <div id="vis"></div>
-    </div>
-    <footer>
-        <div id="view_selection" class="btn-group">
-            <a href="#" id="all" class="btn active">אוסף המילים</a>
-            <a href="#" id="year" class="btn">חלוקה לפי מין</a>
-        </div>
-    </footer>
+    <div id="button" class="btn btn-default">words_of_shame</div>
   </div>
-
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-  <script src="js/CustomTooltip.js"></script>
-  <script src="js/libs/d3.js"></script>
-  <script src="js/vis.js"></script>
-  <script src="js/links.js"></script>
-  <script src="js/script.js"></script>
+  <script>
+      document.getElementById("button").onclick = function() {
+        window.location.href = "wordsOfShame.html";
+      };
+  </script>
 </body>
 </html>
