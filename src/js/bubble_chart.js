@@ -60,7 +60,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['low', 'medium'])
-    .range(['#525B86', '#F44F2F']);
+    .range(['#525B86', '#0D004C']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
@@ -145,7 +145,7 @@ function bubbleChart() {
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.group); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+      .attr('stroke', function (d) { return d3.rgb(244,79,47).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -159,6 +159,7 @@ function bubbleChart() {
     // Set initial layout to single group.
     groupBubbles();
   };
+
 
   /*
    * Sets visualization in "single group mode".
@@ -271,7 +272,7 @@ function bubbleChart() {
    */
   function showDetail(d) {
     // change outline to indicate hover state.
-    d3.select(this).attr('stroke', 'black');
+//    d3.select(this).attr('stroke', '#F44F2F');
 
     var content = '<span class="name">Title: </span><span class="value">' +
                   d.name +
@@ -359,6 +360,7 @@ function setupButtons() {
     });
 }
 
+
 /*
  * Helper function to convert a number into a string
  * and add commas to it to improve presentation.
@@ -381,4 +383,5 @@ d3.csv('data/gates_money.csv', display);
 
 // setup the buttons.
 setupButtons();
+
 

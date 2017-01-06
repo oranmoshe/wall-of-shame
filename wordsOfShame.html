@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <title>Wall Of Shame</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-<!--  <link rel="stylesheet" href="./src/css/reset.css">-->
   <link rel="stylesheet" href="./src/css/bubble_chart.css">
   <link rel="stylesheet" href="./src/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
 </head>
 <body class="wordsOfShame">
   <main>
@@ -15,24 +15,18 @@
         <h1>Wall Of Shame</h1>
     </header>
 -->
-
     <div id="vis"></div>
-
-
   </main>
   <footer>
-    <div class="row">
-        <div class="col-xs-1">
-            <a href="#" id="all" class="allGender"></a>
-        </div>
-        <div class="col-xs-1">
-            <a href="#" id="year" class="button"></a>
+    <div class="row container">
+        <div class="col-xs-1" id="toolbar">
+            <a href="#" id="all" class="button allGender active"></a>
+            <a href="#" id="year" class="button byGender"></a>
         </div>
     </div>
   </footer>
   <script src="src/lib/d3.js"></script>
   <script src="src/js/tooltip.js"></script>
   <script src="src/js/bubble_chart.js"></script>
-
 </body>
 </html>

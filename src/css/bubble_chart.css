@@ -1,16 +1,14 @@
-* {
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: SabonItalicOsFRegular;
+    src: url('./fonts/SABON-ITALIC-OLDSTYLE-FIGURES.TTF');
 }
-/*
 @font-face {
     font-family: MEODED-SERIF_OEBOLD;
     src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
 }
-*/
-@font-face {
-    font-family: SabonItalicOsFRegular;
-    src: url('./fonts/SABON-ITALIC-OLDSTYLE-FIGURES.TTF');
+* {
+    margin: 0;
+    padding: 0;
 }
 
 main {
@@ -21,8 +19,22 @@ main {
     background: url('../images/2sex_icon.png') no-repeat;
     width: 100%;
     height: 60px;
+    cursor: pointer;
+    float: left;
+}
+
+.byGender {
+    background: url('../images/male_icon.png') no-repeat;
+    width: 100%;
+    height: 60px;
     display: block;
     cursor: pointer;
+    position: relative;
+    left: 114%;
+}
+a.active {
+    border-bottom: 1px solid #525B86;
+
 }
 .row {
     margin: 0 !important;
@@ -48,7 +60,6 @@ main {
 #toolbar {
     position: relative;
     left:46%;
-    top: 65px;
     float: left;
 }
 
