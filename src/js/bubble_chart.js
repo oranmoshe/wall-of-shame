@@ -11,16 +11,16 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var yearCenters = {
-    2008: { x: width / 3, y: height / 2 },
-    2009: { x: width / 2, y: height / 2 },
-    2010: { x: 2 * width / 3, y: height / 2 }
+//    2008: { x: width / 3, y: height / 2 },
+    male: { x: width / 2, y: height / 2 },
+    female: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
   var yearsTitleX = {
-    2008: 160,
-    2009: width / 2,
-    2010: width - 160
+//    2008: 160,
+    male: width / 2,
+    female: width - 160
   };
 
   // Used when setting up force and
@@ -59,7 +59,7 @@ function bubbleChart() {
 
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
-    .domain(['low', 'medium'])
+    .domain(['male', 'female'])
     .range(['#525B86', '#0D004C']);
 
   // Sizes bubbles based on their area instead of raw radius
@@ -256,13 +256,13 @@ function bubbleChart() {
     var yearsData = d3.keys(yearsTitleX);
     var years = svg.selectAll('.year')
       .data(yearsData);
-
-    years.enter().append('text')
-      .attr('class', 'year')
-      .attr('x', function (d) { return yearsTitleX[d]; })
-      .attr('y', 40)
-      .attr('text-anchor', 'middle')
-      .text(function (d) { return d; });
+//
+//    years.enter().append('text')
+//      .attr('class', 'year')
+//      .attr('x', function (d) { return yearsTitleX[d]; })
+//      .attr('y', 40)
+//      .attr('text-anchor', 'middle')
+//      .text(function (d) { return d; });
   }
 
 
@@ -280,8 +280,8 @@ function bubbleChart() {
                   '<span class="name">Amount: </span><span class="value">$' +
                   addCommas(d.value) +
                   '</span><br/>' +
-                  '<span class="name">Year: </span><span class="value">' +
-                  d.year +
+                  '<span class="name">Gender: </span><span class="value">' +
+                  d.group +
                   '</span>';
     tooltip.showTooltip(content, d3.event);
   }
@@ -379,9 +379,7 @@ function addCommas(nStr) {
 }
 
 // Load the data.
-d3.csv('data/gates_money.csv', display);
+d3.csv('data/wordsOfShame.csv', display);
 
 // setup the buttons.
 setupButtons();
-
-
