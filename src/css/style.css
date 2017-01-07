@@ -3,6 +3,10 @@
     src: url("./fonts/BOD_I.TTF");
 }
 @font-face {
+    font-family: BOD_R;
+    src: url("./fonts/BOD_R.TTF");
+}
+@font-face {
     font-family: MEODED-SERIF_OEBOLD;
     src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
 }
@@ -127,7 +131,10 @@ footer {
     top: 76%;
     left: 14%;
     font-size: 12px;
-    font-family: SABON-LT-ITALIC;
+    font-family: BOD_I;
+}
+.see > span {
+   font-family: BOD_R;
 }
 .contactUs {
     background: url('../images/contactUs.png') no-repeat;
@@ -145,7 +152,10 @@ footer {
     top: -13%;
     left: -11%;
     font-size: 12px;
-    font-family: SABON-LT-ITALIC;
+    font-family: BOD_I;
+}
+.contact > span {
+    font-family: BOD_R;
 }
 .wallOfshame {
     background: url('../images/wallShame.png') no-repeat;
@@ -163,7 +173,10 @@ footer {
     top: 64%;
     left: -73%;
     font-size: 12px;
-    font-family: SABON-LT-ITALIC;
+    font-family: BOD_I;
+}
+.wall > span {
+   font-family: BOD_R;
 }
 .aboutUs {
     background: url('../images/aboutUs.png') no-repeat;
@@ -181,7 +194,10 @@ footer {
     top: -8%;
     left: 40%;
     font-size: 12px;
-    font-family: SABON-LT-ITALIC;
+    font-family: BOD_I;
+}
+.about > span {
+    font-family: BOD_R;
 }
 .breakTheWall {
     background: url('../images/breakTheWall.png') no-repeat;
@@ -199,7 +215,10 @@ footer {
     top: 45%;
     left: 56%;
     font-size: 12px;
-    font-family: SABON-LT-ITALIC;
+    font-family: BOD_I;
+}
+.break > span {
+    font-family: BOD_R;
 }
 .wordsOfShame {
     background: url(../images/wallOfShame.png) no-repeat center center fixed;
@@ -221,8 +240,11 @@ footer {
 .page-header > h1 {
     font-size: 43px;
     color: #0D004C;
-    font-family: BOD_I;
     font-weight: normal;
+    font-family: BOD_R;
+}
+.page-header > h1 > span {
+   font-family: BOD_I;
 }
 .col-xs-1 {
     width: 12.333% !important;
