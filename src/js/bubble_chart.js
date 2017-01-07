@@ -11,17 +11,17 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var yearCenters = {
-//    2008: { x: width / 3, y: height / 2 },
+//  2008: { x: width / 3, y: height / 2 },
     male: { x: width / 2, y: height / 2 },
     female: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
-  var yearsTitleX = {
-//    2008: 160,
-    male: width / 2,
-    female: width - 160
-  };
+    var yearsTitleX = {
+//      2008: 160,
+        male: width / 2.3,
+        female: width - 250
+    };
 
   // Used when setting up force and
   // moving around nodes
@@ -81,17 +81,16 @@ function bubbleChart() {
    */
   function createNodes(rawData) {
     // Use map() to convert raw data into node data.
-    // Checkout http://learnjsdata.com/ for more on
-    // working with data.
+
     var myNodes = rawData.map(function (d) {
       return {
         id: d.id,
         radius: radiusScale(+d.total_amount),
         value: d.total_amount,
-        name: d.grant_title,
-        org: d.organization,
+        word: d.word,
+        definition: d.definition,
         group: d.group,
-        year: d.start_year,
+        gender: d.gender,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -234,7 +233,7 @@ function bubbleChart() {
    */
   function moveToYears(alpha) {
     return function (d) {
-      var target = yearCenters[d.year];
+      var target = yearCenters[d.gender];
       d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
       d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
     };
@@ -247,6 +246,8 @@ function bubbleChart() {
     svg.selectAll('.year').remove();
   }
 
+
+
   /*
    * Shows Year title displays.
    */
@@ -256,13 +257,13 @@ function bubbleChart() {
     var yearsData = d3.keys(yearsTitleX);
     var years = svg.selectAll('.year')
       .data(yearsData);
-//
-//    years.enter().append('text')
-//      .attr('class', 'year')
-//      .attr('x', function (d) { return yearsTitleX[d]; })
-//      .attr('y', 40)
-//      .attr('text-anchor', 'middle')
-//      .text(function (d) { return d; });
+
+    years.enter().append('text')
+      .attr('class', 'year')
+      .attr('x', function (d) { return yearsTitleX[d]; })
+      .attr('y', 120)
+      .attr('text-anchor', 'middle')
+      .text(function (d) { return d; });
   }
 
 
@@ -274,14 +275,13 @@ function bubbleChart() {
     // change outline to indicate hover state.
 //    d3.select(this).attr('stroke', '#F44F2F');
 
-    var content = '<span class="name">Title: </span><span class="value">' +
-                  d.name +
-                  '</span><br/>' +
-                  '<span class="name">Amount: </span><span class="value">$' +
+    var content = '<span class="name">המילה: </span><span class="value">' +
+                  d.word + '</span><br/>' +
+                  '<span class="name">כמות: </span><span class="value">' +
                   addCommas(d.value) +
                   '</span><br/>' +
-                  '<span class="name">Gender: </span><span class="value">' +
-                  d.group +
+                  '<span class="name">הגדרה: </span><span class="value definition">' +
+                  d.definition +
                   '</span>';
     tooltip.showTooltip(content, d3.event);
   }

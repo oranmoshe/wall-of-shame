@@ -1,39 +1,48 @@
 @font-face {
-    font-family: SabonItalicOsFRegular;
-    src: url('./fonts/SABON-ITALIC-OLDSTYLE-FIGURES.TTF');
+    font-family: SABON-ITALIC-OLDSTYLE-FIGURES;
+    src: url("./fonts/SABON-ITALIC-OLDSTYLE-FIGURES.TTF");
 }
 @font-face {
     font-family: MEODED-SERIF_OEBOLD;
     src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
+}
+@font-face {
+    font-family: SABON-LT-ITALIC;
+    src: url("./fonts/SABON-LT-ITALIC.TTF");
 }
 * {
     margin: 0;
     padding: 0;
 }
 
+/*
 main {
     max-width: 900px;
 }
+*/
 
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
-    width: 100%;
-    height: 60px;
+    width: 60%;
+    height: 40px;
     cursor: pointer;
     float: left;
 }
 
-.male {
+.splitGender {
     background: url('../images/male_icon.png') no-repeat;
-    width: 100%;
+    width: 42%;
     height: 60px;
     display: block;
     cursor: pointer;
-    position: relative;
-    left: 114%;
+    position: absolute;
+    left: 62px;
 }
-a.active {
+a.active > .border{
     border-bottom: 1px solid #525B86;
+    width: 24px;
+    margin-left: 19%;
+    margin-top: 120%;
 }
 .row {
     margin: 0 !important;
@@ -51,9 +60,9 @@ a.active {
 #vis {
     width: 940px;
     height: 600px;
-    position: relative;
-    top: 50px;
-    left: 16%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
 }
 
 #toolbar {
@@ -63,8 +72,8 @@ a.active {
 }
 
 .year {
-    font-size: 21px;
-    fill: #aaa;
+    font-size: 25px;
+    fill: #F44F2F;
     cursor: default;
 }
 
@@ -73,15 +82,13 @@ a.active {
     top: 100px;
 	left: 100px;
     -moz-border-radius:5px;
-	border-radius: 5px;
-    border: 2px solid #000;
-    background: #fff;
-	opacity: .9;
-    color: black;
+    background: #FAC2C0;
 	padding: 10px;
 	width: 300px;
-	font-size: 12px;
+	font-size: 14px !important;
 	z-index: 10;
+    direction: rtl;
+    font-family: MEODED-SERIF_OEBOLD !important;
 }
 
 .tooltip .title {
@@ -90,41 +97,175 @@ a.active {
 
 .tooltip .name {
     font-weight:bold;
+    color: #0D004C;
+}
+.tooltip .definition {
+    color: #525B86;
+    font-size: 12px !important;
 }
 
 .SeeTheWall {
     background: url('../images/seethewall.png') no-repeat;
-    width: 9%;
-    height: 100px;
+    width: 6%;
+    height: 70px;
     position: relative;
-    top: 204px;
+    top: 130px;
+    left: 23%;
     float: left;
     cursor: pointer;
     color: #525B86;
+}
+.see {
+    position: relative;
+    top: 76%;
+    left: 14%;
+    font-size: 12px;
+    font-family: SABON-LT-ITALIC;
+}
+.contactUs {
+    background: url('../images/contactUs.png') no-repeat;
+    width: 6%;
+    height: 70px;
+    position: relative;
+    top: 250px;
+    left: 15%;
+    float: left;
+    cursor: pointer;
+    color: #525B86;
+}
+.contact {
+    position: relative;
+    top: -13%;
+    left: -11%;
+    font-size: 12px;
+    font-family: SABON-LT-ITALIC;
+}
+.wallOfshame {
+    background: url('../images/wallShame.png') no-repeat;
+    width: 6%;
+    height: 70px;
+    position: relative;
+    top: 350px;
+    left: 18%;
+    float: left;
+    cursor: pointer;
+    color: #525B86;
+}
+.wall {
+    position: relative;
+    top: 64%;
+    left: -73%;
+    font-size: 12px;
+    font-family: SABON-LT-ITALIC;
+}
+.aboutUs {
+    background: url('../images/aboutUs.png') no-repeat;
+    width: 6%;
+    height: 70px;
+    position: relative;
+    top: 390px;
+    left: 42%;
+    float: left;
+    cursor: pointer;
+    color: #525B86;
+}
+.about {
+    position: relative;
+    top: -8%;
+    left: 40%;
+    font-size: 12px;
+    font-family: SABON-LT-ITALIC;
+}
+.breakTheWall {
+    background: url('../images/breakTheWall.png') no-repeat;
+    width: 6%;
+    height: 70px;
+    position: relative;
+    top: 215px;
+    left: 44%;
+    float: left;
+    cursor: pointer;
+    color: #525B86;
+}
+.break {
+    position: relative;
+    top: 45%;
+    left: 56%;
+    font-size: 12px;
+    font-family: SABON-LT-ITALIC;
 }
 .wordsOfShame {
     background: url(../images/wallOfShame.png) no-repeat center center fixed;
     background-size: 100% 100%;
 }
 .logo {
-    background: url('../images/homeScreen-logo.png') no-repeat;
+    background: url('../images/homeScreen-logo.png') no-repeat center;
     width: 100%;
     height: 480px;
-    background-attachment: fixed;
-    background-position: center;
 }
 .page-header {
     border-bottom: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    float: left;
+    text-align: center;
     position: relative;
-    top: 150px;
-    left: 38%;
+    top: 105px;
 }
 .page-header > h1 {
     font-size: 43px;
-    color: #525B86;
-    font-family: SabonItalicOsFRegular;
+    color: #0D004C;
+    font-family: SABON-ITALIC-OLDSTYLE-FIGURES;
     font-weight: normal;
+}
+
+@media screen and (min-width: 840px) and (max-width: 1080px) {
+    .SeeTheWall {
+        width: 8%;
+        left: 16%;
+    }
+     .wallOfshame {
+        width: 10%;
+    }
+    .contactUs {
+        width: 8%;
+    }
+    .aboutUs {
+        width: 8%;
+    }
+    .breakTheWall {
+        width: 9%;
+    }
+}
+@media screen and (max-width: 840px) {
+    .logo {
+        background: url('../images/logo-mobile.png') no-repeat center;
+    }
+    .SeeTheWall {
+        width: 16%;
+        left: 0;
+    }
+    .wallOfshame {
+        width: 20%;
+        left: 0;
+    }
+    .contactUs {
+        width: 14%;
+        left: -2%;
+    }
+    .aboutUs {
+        width: 16%;
+        left: 10%;
+    }
+    .breakTheWall {
+        width: 19%;
+        left: 10%;
+    }
+    .break {
+        top: 63%;
+        left: 26%;
+    }
+    .wall {
+        left: -40%;
+        top: 85%;
+    }
 }
