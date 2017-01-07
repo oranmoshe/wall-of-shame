@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="static/js/color-thief.js"></script>
+	<script src="static/js/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/styleIndex.css"> 
+</head>
+<body>
+	<main>
+		<section class="commercial">
+			<div class="image"></div>
+			<div class="icon"></div>
+			<div class="quot"></div>
+			<blockquote class="blockquote">
+				<a target="_blank"  class="credit"></a> / <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+			</blockquote>
+		</section>
+		<section class="commercial">
+
+		</section>
+	</main>
+	<script>
+		// init elements
+		QUOT = $('.quot');
+		ICON = $('.icon');
+		IMAGE = $('.image');
+		CREDIT = $('.credit');
+
+		// init colors
+		function initElementsColors(){
+			$(QUOT).css('color',COLOR_2);
+			$(ICON).find('svg').css('fill',COLOR_2);
+		}
+
+		run();
+
+	</script>
+</body>
+</html>
