@@ -1,0 +1,3 @@
+counter,word,offsets
+6,zona,"[{'title': 'sports', 'time': '1 Jan 2014', 'archPath': 'arch/abc.txt', 'url': 'http://www.json-generator.com/', 'counter': 4}]"
+6,tipsha,"[{'title': 'economics', 'time': '1 Jan 2014', 'archPath': 'arch/abc.txt', 'url': 'http://www.json-generator.com/', 'counter': 4}]"
