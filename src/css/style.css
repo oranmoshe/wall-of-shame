@@ -15,12 +15,6 @@
     padding: 0;
 }
 
-/*
-main {
-    max-width: 900px;
-}
-*/
-
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
     width: 60%;
@@ -30,9 +24,9 @@ main {
 }
 
 .splitGender {
-    background: url('../images/male_icon.png') no-repeat;
-    width: 42%;
-    height: 60px;
+    background: url('../images/male-female.png') no-repeat;
+    width: 50%;
+    height: 40px;
     display: block;
     cursor: pointer;
     position: absolute;
@@ -41,8 +35,9 @@ main {
 a.active > .border{
     border-bottom: 1px solid #525B86;
     width: 24px;
-    margin-left: 19%;
-    margin-top: 120%;
+    position: absolute;
+    top: 105%;
+    left: 15%;
 }
 .row {
     margin: 0 !important;
@@ -65,13 +60,16 @@ a.active > .border{
     padding-top: 3%;
 }
 
+footer {
+    height: 75px;
+}
 #toolbar {
     position: relative;
     left:46%;
     float: left;
 }
 
-.year {
+.gender {
     font-size: 25px;
     fill: #F44F2F;
     cursor: default;
@@ -217,7 +215,9 @@ a.active > .border{
     font-family: SABON-ITALIC-OLDSTYLE-FIGURES;
     font-weight: normal;
 }
-
+.col-xs-1 {
+    width: 12.333% !important;
+}
 @media screen and (min-width: 840px) and (max-width: 1080px) {
     .SeeTheWall {
         width: 8%;
@@ -267,5 +267,17 @@ a.active > .border{
     .wall {
         left: -40%;
         top: 85%;
+    }
+
+}
+@media screen and (min-width: 480px) and (max-width: 1080px) {
+    #vis {
+        width: 740px;
+        height: 400px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    #toolbar {
+        top: 250px;
     }
 }

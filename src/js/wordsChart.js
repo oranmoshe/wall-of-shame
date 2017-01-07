@@ -10,14 +10,14 @@ function bubbleChart() {
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
-  var yearCenters = {
+  var genderCenters = {
 //  2008: { x: width / 3, y: height / 2 },
     male: { x: width / 2, y: height / 2 },
     female: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
-    var yearsTitleX = {
+    var genderTitleX = {
 //      2008: 160,
         male: width / 2.3,
         female: width - 250
@@ -233,7 +233,7 @@ function bubbleChart() {
    */
   function moveToYears(alpha) {
     return function (d) {
-      var target = yearCenters[d.gender];
+      var target = genderCenters[d.gender];
       d.x = d.x + (target.x - d.x) * damper * alpha * 1.1;
       d.y = d.y + (target.y - d.y) * damper * alpha * 1.1;
     };
@@ -243,9 +243,8 @@ function bubbleChart() {
    * Hides Year title displays.
    */
   function hideYears() {
-    svg.selectAll('.year').remove();
+    svg.selectAll('.gender').remove();
   }
-
 
 
   /*
@@ -254,13 +253,13 @@ function bubbleChart() {
   function showYears() {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
-    var yearsData = d3.keys(yearsTitleX);
-    var years = svg.selectAll('.year')
+    var yearsData = d3.keys(genderTitleX);
+    var years = svg.selectAll('.gender')
       .data(yearsData);
 
     years.enter().append('text')
-      .attr('class', 'year')
-      .attr('x', function (d) { return yearsTitleX[d]; })
+      .attr('class', 'gender')
+      .attr('x', function (d) { return genderTitleX[d]; })
       .attr('y', 120)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
@@ -305,7 +304,7 @@ function bubbleChart() {
    * displayName is expected to be a string and either 'year' or 'all'.
    */
   chart.toggleDisplay = function (displayName) {
-    if (displayName === 'year') {
+    if (displayName === 'splitGender') {
       splitBubbles();
     } else {
       groupBubbles();
