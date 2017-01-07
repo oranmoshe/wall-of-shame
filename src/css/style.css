@@ -14,13 +14,17 @@
     margin: 0;
     padding: 0;
 }
+main {
+    max-width: 1200px;
+}
 
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
-    width: 60%;
+    width: 39%;
     height: 40px;
     cursor: pointer;
     float: left;
+    margin-left: -24%;
 }
 
 .splitGender {
@@ -34,13 +38,15 @@
 }
 a.active > .border{
     border-bottom: 1px solid #525B86;
-    width: 24px;
+    width: 38px;
     position: absolute;
     top: 105%;
-    left: 15%;
 }
-.row {
-    margin: 0 !important;
+a.active > .borderline{
+    border-bottom: 1px solid #525B86;
+    width: 95%;
+    position: absolute;
+    top: 105%;
 }
 .col-xs-1 {
     position: relative;
@@ -69,11 +75,14 @@ footer {
     float: left;
 }
 
+/*
 .gender {
     font-size: 25px;
     fill: #F44F2F;
     cursor: default;
+    font-family: SABON-LT-ITALIC;
 }
+*/
 
 .tooltip {
     position: absolute;

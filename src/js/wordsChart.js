@@ -12,15 +12,15 @@ function bubbleChart() {
 
   var genderCenters = {
 //  2008: { x: width / 3, y: height / 2 },
-    male: { x: width / 2, y: height / 2 },
+    male: { x: width / 2.5, y: height / 2 },
     female: { x: 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
     var genderTitleX = {
 //      2008: 160,
-        male: width / 2.3,
-        female: width - 250
+        male: width / 2.5,
+        female: width - 270
     };
 
   // Used when setting up force and
@@ -60,7 +60,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['male', 'female'])
-    .range(['#525B86', '#0D004C']);
+    .range(['#F44F2F', '#0D004C']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
@@ -144,8 +144,8 @@ function bubbleChart() {
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.group); })
-      .attr('stroke', function (d) { return d3.rgb(244,79,47).darker(); })
-      .attr('stroke-width', 2)
+//      .attr('stroke', function (d) { return d3.rgb(244,79,47).darker(); })
+//      .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
 
@@ -256,13 +256,13 @@ function bubbleChart() {
     var yearsData = d3.keys(genderTitleX);
     var years = svg.selectAll('.gender')
       .data(yearsData);
-
-    years.enter().append('text')
-      .attr('class', 'gender')
-      .attr('x', function (d) { return genderTitleX[d]; })
-      .attr('y', 120)
-      .attr('text-anchor', 'middle')
-      .text(function (d) { return d; });
+//
+//    years.enter().append('text')
+//      .attr('class', 'gender')
+//      .attr('x', function (d) { return genderTitleX[d]; })
+//      .attr('y', 80)
+//      .attr('text-anchor', 'middle')
+//      .text(function (d) { return d; });
   }
 
 
