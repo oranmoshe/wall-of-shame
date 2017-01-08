@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="static/js/color-thief.js"></script>
+	<script src="static/js/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/style.css"> 
+</head>
+<body>
+
+	<header>
+		<input type="text" id="term" placeholder="Term" value="car"><span id="submit" style="color: blue;"> Refresh</span>
+	</header>
+	<main>
+		<div id="icon"></div>
+		<blockquote>
+			<a target="_blank"  id="credit"></a> / <a href="https://unsplash.com/" target="_blank">Unsplash</a>
+		</blockquote>
+		<div id="image"></div>
+		<div id="quot"></div>
+
+		<div class="box-container">
+			<h2>Dominant Color</h2>
+			<div id="box-0"></div>
+		</div>
+		<div class="box-container">
+			<h2>Palette Color (BackGround)</h2>
+			<div id="box-1"></div>
+			<div id="box-2"></div>
+			<div id="box-3"></div>
+			<div id="box-4"></div>
+			<div id="box-5"></div>
+			<div id="box-6"></div>
+			<div id="box-7"></div>
+			<div id="box-8"></div>
+			<div id="box-9"></div>
+		</div>
+		<div>
+			<h2>Palette Color (Text)</h2>
+			<div id="quot-0">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-1">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-2">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-3">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-4">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-5">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-6">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-7">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-8">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+			<div id="quot-9">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..</div>
+		</div>
+		<script>
+			// init elements
+			QUOT = $('#quot');
+			ICON = $('#icon');
+			IMAGE = $('#image');
+			CREDIT = $('#credit');
+			// init colors
+			function initElementsColors(){
+				console.log('inittt');
+				// coloring text:
+				$("#quot-0").css('color',COLOR_DOMINANT);
+				$("#quot-1").css('color',COLOR_1);
+				$("#quot-2").css('color',COLOR_2);
+				$("#quot-3").css('color',COLOR_3);
+				$("#quot-4").css('color',COLOR_4);
+				$("#quot-5").css('color',COLOR_5);
+				$("#quot-6").css('color',COLOR_6);
+				$("#quot-7").css('color',COLOR_7);
+				$("#quot-8").css('color',COLOR_8);
+				$("#quot-9").css('color',COLOR_9);
+				// coloring backgrounds:
+				$("#box-0").css('background-color',COLOR_DOMINANT);
+				$("#box-1").css('background-color',COLOR_1);
+				$("#box-2").css('background-color',COLOR_2);
+				$("#box-3").css('background-color',COLOR_3);
+				$("#box-4").css('background-color',COLOR_4);
+				$("#box-5").css('background-color',COLOR_5);
+				$("#box-6").css('background-color',COLOR_6);
+				$("#box-7").css('background-color',COLOR_7);
+				$("#box-8").css('background-color',COLOR_8);
+				$("#box-9").css('background-color',COLOR_9);
+				// coloring svg's:
+				$("svg").css('fill',COLOR_DOMINANT);
+			}
+		</script>
+	</main>
+</body>
+</html>
