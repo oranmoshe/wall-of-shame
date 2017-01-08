@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "description": "פלטפורמה לאיתור וניטור הכפשות נגד נשים באינטרנט",
   "web_accessible_resources": [
-	  "words.json"
+	  "data/words.json"
   ],
   "background": {
         "scripts": [

@@ -3,7 +3,7 @@
 
 function lightWords(){
 	var xhr = new XMLHttpRequest;
-	xhr.open("GET", chrome.runtime.getURL("words.json"));
+	xhr.open("GET", chrome.runtime.getURL("data/words.json"));
 	xhr.onreadystatechange = function() {
 	  if (this.readyState == 4) {
 	    console.log("request finished, now parsing");
