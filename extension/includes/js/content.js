@@ -12,7 +12,7 @@ function lightWords(){
 	    var words_list = {};
       	var offensive_counter = 0;
 	    $.each( window.parsed_json, function( key, val ) {
-  	 		$("body *").replaceText(val.word, '<a href=\"https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%99%D7%9E%D7%95%D7%AA_%D7%A0%D7%92%D7%93_%D7%A0%D7%A9%D7%99%D7%9D\" style="color: red;">'+val.word+'</a>', function(data){
+  	 		$("body *").replaceText(val.word, '<a href=\"https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%99%D7%9E%D7%95%D7%AA_%D7%A0%D7%92%D7%93_%D7%A0%D7%A9%D7%99%D7%9D\" style="color: red; display: inline;text-decoration: line-through;">'+val.word+'</a>', function(data){
   	 			offensive_counter+=data;
   	 			if(words_list[val.word] == null)
   	 				words_list[val.word] = 0;

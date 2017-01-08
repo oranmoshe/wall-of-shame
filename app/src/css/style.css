@@ -23,6 +23,11 @@
     padding: 0;
 }
 
+#container a {
+       color: #525B86;
+       text-decoration: none;
+}
+
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
     width: 39%;

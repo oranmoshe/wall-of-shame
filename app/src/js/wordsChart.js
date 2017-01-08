@@ -60,7 +60,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['male', 'female'])
-    .range(['#F44F2F', '#0D004C']);
+    .range(['#0D004C', '#F44F2F']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
@@ -140,9 +140,11 @@ function bubbleChart() {
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
     // Initially, their radius (r attribute) will be 0.
-    bubbles.enter().append('circle')
+    bubbles.enter().append('rect')
       .classed('bubble', true)
       .attr('r', 0)
+      .attr('width', 0)
+      .attr('height', 0)
       .attr('fill', function (d) { return fillColor(d.group); })
 //      .attr('stroke', function (d) { return d3.rgb(244,79,47).darker(); })
 //      .attr('stroke-width', 2)
@@ -153,7 +155,8 @@ function bubbleChart() {
     // correct radius
     bubbles.transition()
       .duration(2000)
-      .attr('r', function (d) { return d.radius; });
+      .attr('height', function (d) { return d.radius; })
+      .attr('width', function (d) { return d.radius; });
 
     // Set initial layout to single group.
     groupBubbles();
@@ -171,8 +174,8 @@ function bubbleChart() {
 
     force.on('tick', function (e) {
       bubbles.each(moveToCenter(e.alpha))
-        .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('x', function (d) { return d.x; })
+        .attr('y', function (d) { return d.y; });
     });
 
     force.start();
@@ -210,8 +213,8 @@ function bubbleChart() {
 
     force.on('tick', function (e) {
       bubbles.each(moveToYears(e.alpha))
-        .attr('cx', function (d) { return d.x; })
-        .attr('cy', function (d) { return d.y; });
+        .attr('x', function (d) { return d.x; })
+        .attr('y', function (d) { return d.y; });
     });
 
     force.start();

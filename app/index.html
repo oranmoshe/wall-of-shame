@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="favicon.png">
     <link rel="stylesheet" href="./src/css/style.css">
     <link rel="stylesheet" href="./src/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -14,43 +15,19 @@
     <div class="page-header">
         <h1>wall of <span>shame</span></h1>
     </div>
-    <div id="button" class="SeeTheWall"><div class="see"><span>see the</span> wall</div></div>
-    <div id="button" class="contactUs"><div class="contact"><span>contact</span> us</div></div>
-    <div id="button" class="wallOfshame"><div class="wall"><span>wall of</span> shame</div></div>
-    <div id="button" class="aboutUs"><div class="about"><span>about</span> us</div></div>
-    <div id="button" class="breakTheWall"><div class="break"><span>break the</span> wall</div></div>
+    <div id="button1" class="SeeTheWall"><div class="see"><a href="wordsOfShame.html"><span>see the</span> wall</a></div></div>
+    <div id="button2" class="contactUs"><div class="contact"><a href="https://chrome.google.com/webstore/detail/pgjbpbddcccaeamdnfbcngigdkhkadjb/publish-accepted"><span>contact</span> us</a></div></div>
+    <div id="button3" class="wallOfshame"><div class="wall"><span>wall of</span> shame</div></div>
+    <div id="button4" class="aboutUs"><div class="about"><span>about</span> us</div></div>
+    <div id="button5" class="breakTheWall"><div class="break"><span>break the</span> wall</div></div>
     <div class="logo"></div>
   </div>
-  <script>
-        $(document).ready(function() {
-
-          $.ajax({
-              type: "GET",
-              url: "http://nashim.herokuapp.com/getPlotCSV",
-              dataType: "text",
-              success: function(data) {console.log(data);   }
-           });
-      });
-
-      function processData(allText) {
-          var record_num = 7;  // or however many elements there are in each row
-          var allTextLines = allText.split(/\r\n|\n/);
-          var entries = allTextLines[0].split(',');
-          var lines = [];
-
-          var headings = entries.splice(0,record_num);
-          while (entries.length>0) {
-              var tarr = [];
-              for (var j=0; j<record_num; j++) {
-                  tarr.push(headings[j]+":"+entries.shift());
-              }
-              lines.push(tarr);
-          }
-         console.log(lines); // alert(lines);
-      }
-
-      document.getElementById("button").onclick = function() {
+    <script>
+      document.getElementById("button1").onclick = function() {
         window.location.href = "wordsOfShame.html";
+      };
+      document.getElementById("button2").onclick = function() {
+        window.location.href = "https://chrome.google.com/webstore/detail/pgjbpbddcccaeamdnfbcngigdkhkadjb/publish-accepted";
       };
   </script>
 </body>
