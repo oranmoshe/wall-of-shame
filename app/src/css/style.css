@@ -45,7 +45,7 @@ a.active > .border{
 }
 a.active > .borderline{
     border-bottom: 1px solid #525B86;
-    width: 95%;
+    width: 67px;
     position: absolute;
     top: 105%;
 }
