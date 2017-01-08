@@ -12,25 +12,20 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def getAllWords():
     return words.getAllWords()
 
-@app.route('/', methods = ['GET'])
-@cross_origin()
-def root():
-    return "root"
+
+@app.route('/success/<name>')
+def success(name):
+   return 'welcome %s' % name
 
 
-@app.route('/updateamount/<string:_word>/<int:_amount>')
-def update_word(_word,_amount):
-    words.updateWordAmount(_word,_amount)
-    return "yes"
-
-@app.route('/login',methods = ['POST', 'GET'])
-@cross_origin()
-def login():
+@app.route('/updateamount',methods = ['POST', 'GET'])
+def updateamount():
    if request.method == 'POST':
-      wordd = request.form['word']
-      amountt = request.form['amount']
-      words.updateWordAmount(wordd,amountt)
-      return "yes"
+      word = request.form['word']
+      amount = request.form['amount']
+      words.updateWordAmount(word,amount)
+      return word
+
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
