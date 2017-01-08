@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Modify CSS and HTML",
+  "name": "Wall Of Shame",
   "version": "0.1.0",
-  "description": "Lateral blog post demo extension",
+  "description": "פלטפורמה לאיתור וניטור הכפשות נגד נשים באינטרנט",
   "web_accessible_resources": [
 	  "words.json"
   ],

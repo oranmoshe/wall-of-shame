@@ -100,9 +100,9 @@ def updateWordAmount(_word,amount):
     
     songs = db['words']
 
-    newAmount = songs.find_one({"word": _word})['amount']+ int(amount)
+    newAmount = songs.find_one({"word": _word})['total_amount']+ int(amount)
     query = {"word":_word}
-    songs.update_one(query, {'$set': {'amount': newAmount}})
+    songs.update_one(query, {'$set': {'total_amount': newAmount}})
 
     client.close()
 
