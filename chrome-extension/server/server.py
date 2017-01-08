@@ -14,11 +14,13 @@ def getAllWords():
 
 
 @app.route('/success/<name>')
+@cross_origin()
 def success(name):
    return 'welcome %s' % name
 
 
 @app.route('/updateamount',methods = ['POST', 'GET'])
+@cross_origin()
 def updateamount():
    if request.method == 'POST':
       word = request.form['word']

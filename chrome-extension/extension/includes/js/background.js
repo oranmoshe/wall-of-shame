@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(
 
     if (request.set_shown_words_list != null){
       tabs_words_list[sender.tab.id] =  request.set_shown_words_list;
-      sendResponse({farewell: '<<<<words>>>>: '+ sender.tab.id +': '+request.set_shown_words_list});
+      sendResponse({farewell: '<<<<words>>>>: '+ sender.tab.id +':  dddd'+update_amounts(sender.tab.id)});
     }   
 
     if (request.get_shown_words_list != null){      
@@ -40,10 +40,19 @@ function get_tabs_words_list(tab_id){
   return tabs_words_list[tab_id];
  }
 
- function update_amount(word,amount){
+function update_amounts(tab_id){
+  var words = "";
+  $.each(tabs_words_list[tab_id], function(k, v) {
+      //display the key and value pair
+      update_amount(k,v);
+  });
+  return words;
+}
+
+function update_amount(word,amount){
   var http = new XMLHttpRequest();
-  var url = "get_data.php";
-  var params = "lorem=ipsum&name=binny";
+  var url = "https://nashim.herokuapp.com/updateamount";
+  var params = 'word='+word+'&amount='+amount;
   http.open("POST", url, true);
 
   //Send the proper header information along with the request
@@ -51,7 +60,10 @@ function get_tabs_words_list(tab_id){
 
   http.onreadystatechange = function() {//Call a function when the state changes.
       if(http.readyState == 4 && http.status == 200) {
-          alert(http.responseText);
+          console.log('post success')
+      }
+      else{
+          console.log('error')
       }
   }
   http.send(params);
