@@ -14,9 +14,18 @@
     font-family: SABON-LT-ITALIC;
     src: url("./fonts/SABON-LT-ITALIC.TTF");
 }
+@font-face {
+    font-family: SABON-LT-ROMAN;
+    src: url("./fonts/SABON-LT-ROMAN.TTF");
+}
 * {
     margin: 0;
     padding: 0;
+}
+
+#container a {
+       color: #525B86;
+       text-decoration: none;
 }
 
 .allGender {
@@ -238,10 +247,10 @@ footer {
     font-size: 43px;
     color: #0D004C;
     font-weight: normal;
-    font-family: BOD_R;
+    font-family: SABON-LT-ROMAN;
 }
 .page-header > h1 > span {
-   font-family: BOD_I;
+   font-family: SABON-LT-ITALIC;
 }
 .col-xs-1 {
     width: 12.333% !important;
