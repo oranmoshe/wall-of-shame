@@ -255,6 +255,12 @@ footer {
 .col-xs-1 {
     width: 12.333% !important;
 }
+
+/* Drop shadow for each rect element */
+.shadow {
+    -webkit-filter: drop-shadow( 8px 9px 0px #0D004C);
+            filter: drop-shadow( 8px 9px 0px #0D004C);
+}
 @media screen and (min-width: 840px) and (max-width: 1080px) {
     .SeeTheWall {
         width: 8%;

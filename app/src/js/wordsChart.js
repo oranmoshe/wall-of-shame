@@ -60,7 +60,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   var fillColor = d3.scale.ordinal()
     .domain(['male', 'female'])
-    .range(['#0D004C', '#F44F2F']);
+    .range(['#525b86', '#F44F2F']);
 
   // Sizes bubbles based on their area instead of raw radius
   var radiusScale = d3.scale.pow()
@@ -130,6 +130,7 @@ function bubbleChart() {
     // with desired size.
     svg = d3.select(selector)
       .append('svg')
+      .classed('shadow', true)
       .attr('width', width)
       .attr('height', height);
 
@@ -294,7 +295,7 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+//      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
 
     tooltip.hideTooltip();
   }
