@@ -318,3 +318,9 @@ footer {
         top: 250px;
     }
 }
+
+/*drop shadow for each rect element*/
+.shadow {
+    -webkit-filter: drop-shadow( 8px 9px 0px #0D004C );
+            filter: drop-shadow( 8px 9px 0px #0D004C );
+}
