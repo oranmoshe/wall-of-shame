@@ -31,10 +31,9 @@ html, body {
 }
 main {
     position: relative;
-    top: 155px;
 }
 #page {
-    width: 1600px;
+    width: 990px;
     margin-right: auto;
     margin-left: auto;
     min-height: 100%;
@@ -46,20 +45,20 @@ main {
 
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
-    width: 39%;
+    width: 5%;
     height: 40px;
     cursor: pointer;
     float: left;
+    position: relative;
 }
 
 .splitGender {
     background: url('../images/male-female.png') no-repeat;
-    width: 55%;
+    width: 9%;
     height: 40px;
-    display: block;
     cursor: pointer;
     position: absolute;
-    left: 154px;
+    left: 15%;
 }
 a.active > .border{
     border-bottom: 3px solid #525B86;
@@ -86,23 +85,18 @@ a.active > .borderline{
 #vis {
     width: 940px;
     height: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 3%;
 }
 
 footer {
     height: 75px;
     position: relative;
-    clear: both;
-    max-width: 1600px;
+    max-width: 990px;
     width: 100%;
     margin: 0 auto;
-    top: 200px;
 }
 #toolbar {
     position: relative;
-    float: left;
+    left: 30%;
 }
 .footer_right {
     float: right;
@@ -290,7 +284,7 @@ footer {
 }
 .text {
     direction: rtl;
-    width: 26%;
+    width: 27%;
     position: absolute;
     top: 0;
     right: 0;
@@ -311,6 +305,11 @@ footer {
 .word {
     width: 20xp;
     text-align: center;
+}
+#svg {
+    position: relative;
+    top: -80px;
+    right: 110px;
 }
 @media screen and (min-width: 840px) and (max-width: 1080px) {
     .SeeTheWall {
