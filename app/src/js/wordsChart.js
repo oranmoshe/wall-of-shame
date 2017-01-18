@@ -119,7 +119,7 @@ function bubbleChart() {
     // Use the max total_amount in the data as the max in the scale's domain
     // note we have to ensure the total_amount is a number by converting it
     // with `+`.
-    var maxAmount = d3.max(rawData, function (d) { return +d.total_amount; });
+    var maxAmount = d3.max(rawData, function (d) { return + d.total_amount; });
     radiusScale.domain([0, maxAmount]);
 
     nodes = createNodes(rawData);
@@ -130,6 +130,7 @@ function bubbleChart() {
     // with desired size.
     svg = d3.select(selector)
       .append('svg')
+      .attr('id', "svg")
       .classed('shadow', true)
       .attr('width', width)
       .attr('height', height);
@@ -151,6 +152,7 @@ function bubbleChart() {
 //      .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
+
 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
@@ -269,7 +271,6 @@ function bubbleChart() {
 //      .text(function (d) { return d; });
   }
 
-
   /*
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
@@ -294,7 +295,7 @@ function bubbleChart() {
    */
   function hideDetail(d) {
     // reset outline
-    d3.select(this)
+//    d3.select(this)
 //      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
 
     tooltip.hideTooltip();
