@@ -31,7 +31,7 @@ html, body {
 }
 main {
     position: relative;
-    top: 200px;
+    top: 155px;
 }
 #page {
     width: 1600px;
@@ -150,16 +150,14 @@ footer {
     font-size: 12px !important;
 }
 
-.SeeTheWall {
-    background: url('../images/seethewall.png') no-repeat;
-    width: 6%;
-    height: 70px;
+.arrow {
+    background: url('../images/arrow.png') no-repeat;
+    width: 4%;
+    height: 74px;
     position: relative;
-    top: 130px;
-    left: 23%;
     float: left;
+    top: -200px;
     cursor: pointer;
-    color: #525B86;
 }
 .see {
     position: relative;
@@ -268,15 +266,15 @@ footer {
     border-bottom: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    text-align: center;
     position: relative;
-    top: 105px;
+    top: 33px;
+    float: left;
 }
 .page-header > h1 {
     font-size: 43px;
-    color: #0D004C;
+    color: #525b86;
     font-weight: normal;
-    font-family: SABON-LT-ROMAN;
+    font-family: MEODED-SERIF_OEREGULAR;
 }
 .page-header > h1 > span {
    font-family: SABON-LT-ITALIC;
