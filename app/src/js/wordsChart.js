@@ -135,12 +135,14 @@ function bubbleChart() {
       .attr('width', width)
       .attr('height', height);
 
+
+
     // Bind nodes data to what will become DOM elements to represent them.
     bubbles = svg.selectAll('.bubble')
       .data(nodes, function (d) { return d.id; });
 
-    // Create new circle elements each with class `bubble`.
-    // There will be one circle.bubble for each object in the nodes array.
+    // Create new rect elements each with class `bubble`.
+    // There will be one rect.bubble for each object in the nodes array.
     // Initially, their radius (r attribute) will be 0.
     bubbles.enter().append('rect')
       .classed('bubble', true)
@@ -148,11 +150,25 @@ function bubbleChart() {
       .attr('width', 0)
       .attr('height', 0)
       .attr('fill', function (d) { return fillColor(d.group); })
-//      .attr('stroke', function (d) { return d3.rgb(244,79,47).darker(); })
+//      .attr(text, function (d) { return d3.rgb(244,79,47).darker(); })
 //      .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
 
+    //Add the SVG Text Element to the svg
+    var text = svg.selectAll("text")
+            .data(nodes, function (d) { return d.id; })
+            .enter()
+            .append("text");
+
+
+    //Add the text attributes
+    var textLabels = text
+            .attr("x", function(d) { return d.x; })
+            .attr("y", function(d) { return d.y; })
+            .text( function (d) { return (d.word); })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "10px")
 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius
@@ -163,8 +179,8 @@ function bubbleChart() {
 
     // Set initial layout to single group.
     groupBubbles();
-  };
 
+  };
 
   /*
    * Sets visualization in "single group mode".
@@ -254,7 +270,7 @@ function bubbleChart() {
 
 
   /*
-   * Shows Year title displays.
+   * Shows gender title displays.
    */
   function showYears() {
     // Another way to do this would be to create
@@ -387,3 +403,75 @@ d3.csv('http://nashim.herokuapp.com/getPlotCSV', display);
 
 // setup the buttons.
 setupButtons();
+
+
+
+
+/*
+    Wall of Shame page
+                        */
+function gridData() {
+	var data = new Array();
+	var xpos = 1; //starting xpos and ypos at 1 so the stroke will show when we make the grid below
+	var ypos = 1;
+	var width = 20;
+	var height = 20;
+	var click = 0;
+
+	// iterate for rows
+	for (var row = 0; row < 20; row++) {
+		data.push( new Array() );
+
+		// iterate for cells/columns inside rows
+		for (var column = 0; column < 45; column++) {
+			data[row].push({
+				x: xpos,
+				y: ypos,
+				width: width,
+				height: height,
+				click: click
+			})
+			// increment the x position. I.e. move it over by 50 (width variable)
+			xpos += width;
+		}
+		// reset the x position after a row is complete
+		xpos = 1;
+		// increment the y position for the next row. Move it down 50 (height variable)
+		ypos += height;
+	}
+	return data;
+}
+
+var gridData = gridData();
+
+// I like to log the data to the console for quick debugging
+
+console.log(gridData);
+
+var grid = d3.select("#grid")
+	.append("svg")
+	.attr("width","990px")
+	.attr("height","500px");
+
+var row = grid.selectAll(".row")
+	.data(gridData)
+	.enter().append("g")
+	.attr("class", "row");
+
+var column = row.selectAll(".square")
+    .data(function(d) { return d; })
+    .enter().append("rect")
+    .attr("class","square")
+    .attr("x", function(d) { return d.x; })
+    .attr("y", function(d) { return d.y; })
+    .attr("width", function(d) { return d.width; })
+    .attr("height", function(d) { return d.height; })
+    .style("fill", "f54f2e")
+    .style("stroke", "#fff")
+    .on('click', function(d) {
+       d.click ++;
+       if ((d.click)%4 == 0 ) { d3.select(this).style("fill","#fff"); }
+       if ((d.click)%4 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
+       if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
+       if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
+    });

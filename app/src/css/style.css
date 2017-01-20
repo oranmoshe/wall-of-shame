@@ -72,11 +72,13 @@ a.active > .borderline{
     position: absolute;
     top: 105%;
 }
+/*
 .col-xs-1 {
     position: relative;
     left: 44%;
     top: 26px;
 }
+*/
 .background {
     background: url(../images/background.png) no-repeat center center fixed;
     background-size: 100% 100%;
@@ -93,6 +95,7 @@ footer {
     max-width: 990px;
     width: 100%;
     margin: 0 auto;
+
 }
 #toolbar {
     position: relative;
@@ -153,6 +156,7 @@ footer {
     top: -200px;
     cursor: pointer;
 }
+/*
 .see {
     position: relative;
     top: 76%;
@@ -184,6 +188,7 @@ footer {
 .contact > span {
     font-family: BOD_R;
 }
+*/
 .wallOfshame {
     background: url('../images/wallShame.png') no-repeat;
     width: 6%;
@@ -195,6 +200,7 @@ footer {
     cursor: pointer;
     color: #525B86;
 }
+/*
 .wall {
     position: relative;
     top: 64%;
@@ -226,6 +232,8 @@ footer {
 .about > span {
     font-family: BOD_R;
 }
+*/
+/*
 .breakTheWall {
     background: url('../images/breakTheWall.png') no-repeat;
     width: 6%;
@@ -247,6 +255,7 @@ footer {
 .break > span {
     font-family: BOD_R;
 }
+*/
 .wordsOfShame {
     background: url(../images/wallOfShame.png) no-repeat center center fixed;
     background-size: 100% 100%;
@@ -273,9 +282,11 @@ footer {
 .page-header > h1 > span {
    font-family: SABON-LT-ITALIC;
 }
+/*
 .col-xs-1 {
     width: 12.333% !important;
 }
+*/
 
 /* Drop shadow for each rect element */
 .shadow {
@@ -286,7 +297,7 @@ footer {
     direction: rtl;
     width: 27%;
     position: absolute;
-    top: 0;
+    top: 33px;
     right: 0;
     font-family: MEODED-SERIF_OEREGULAR;
     font-size: 18px;
@@ -312,12 +323,15 @@ footer {
     right: 110px;
 }
 @media screen and (min-width: 840px) and (max-width: 1080px) {
+/*
     .SeeTheWall {
         width: 8%;
         left: 16%;
     }
+*/
      .wallOfshame {
         width: 10%;
+/*
     }
     .contactUs {
         width: 8%;
@@ -330,6 +344,7 @@ footer {
         width: 9%;
         left: 27%;
         top: 155px;
+*/
     }
     main{
         left: -3%;
@@ -339,13 +354,16 @@ footer {
     .logo {
         background: url('../images/logo-mobile.png') no-repeat 28% 52%;
     }
+/*
     .SeeTheWall {
         width: 16%;
         left: 0;
     }
+*/
     .wallOfshame {
         left: -100px;
     }
+/*
     .contactUs {
         width: 14%;
         left: -2%;
@@ -362,6 +380,7 @@ footer {
         top: 63%;
         left: 26%;
     }
+*/
     .wall {
         left: -40%;
         top: 85%;
@@ -378,4 +397,12 @@ footer {
     #toolbar {
         top: 250px;
     }
+}
+
+
+/* break the wall page */
+#grid svg {
+    position: relative;
+    top: 70px;
+    left: 8%;
 }
