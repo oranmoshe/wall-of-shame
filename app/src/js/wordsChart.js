@@ -131,7 +131,7 @@ function bubbleChart() {
     svg = d3.select(selector)
       .append('svg')
       .attr('id', "svg")
-      .classed('shadow', true)
+//      .classed('shadow', true)
       .attr('width', width)
       .attr('height', height);
 
@@ -164,11 +164,12 @@ function bubbleChart() {
 
     //Add the text attributes
     var textLabels = text
-            .attr("x", function(d) { return d.x; })
-            .attr("y", function(d) { return d.y; })
+            .attr('x', function (d) { return d.x; })
+            .attr('y', function (d) { return d.y; })
             .text( function (d) { return (d.word); })
+            .attr("text-anchor", "middle") // set anchor y justification
             .attr("font-family", "sans-serif")
-            .attr("font-size", "10px")
+            .attr("font-size", "10px");
 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius

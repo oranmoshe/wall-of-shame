@@ -31,11 +31,10 @@ html, body {
 }
 main {
     position: relative;
-    float: left;
     width: 100%;
 }
 #page {
-    width: 80%;
+    max-width: 100%;
     margin-right: auto;
     margin-left: auto;
     min-height: 100%;
@@ -44,29 +43,26 @@ main {
     color: #525B86;
     text-decoration: none;
 }
-
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
     width: 5%;
     height: 40px;
     cursor: pointer;
     float: left;
-    position: relative;
 }
-
 .splitGender {
     background: url('../images/male-female.png') no-repeat;
-    width: 9%;
+    width: 6%;
     height: 40px;
     cursor: pointer;
     position: absolute;
     left: 15%;
 }
-a.active > .border{
+a.active > .border {
     border-bottom: 3px solid #525B86;
     width: 34px;
     position: absolute;
-    top: 119%;
+    top: 83%;
 }
 a.active > .borderline{
     border-bottom: 3px solid #525B86;
@@ -87,17 +83,24 @@ a.active > .borderline{
 }
 
 footer {
-    height: 75px;
-    position: relative;
-    float: left;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    margin: 10% auto 0 auto;
-
+    height: 60px;
+    clear: both;
 }
+/*
 #toolbar {
     position: relative;
-    left: 41%;
+    left: 33%;
 }
+*/
+
+
+.footer_left {
+
+}
+
 .footer_right {
     float: right;
     font-family: MEODED-SERIF_OEREGULAR;
@@ -163,9 +166,10 @@ footer {
 
 .arrow {
     position: relative;
-    top: -200px;
+    top: -300px;
     cursor: pointer;
     font-size: 48px;
+    left: 90px;
     float: left;
 }
 .arrow a {
@@ -276,7 +280,7 @@ footer {
 }
 */
 .wordsOfShame {
-    background: url(../images/wallOfShame.png) no-repeat center center fixed;
+    background: url(../images/wallOfShame.png) no-repeat fixed;
     background-size: 100% 100%;
 }
 .logo {
@@ -289,8 +293,8 @@ footer {
     padding: 0 !important;
     margin: 0 !important;
     position: relative;
-    top: 111px;
-    left: 10px;
+    top: 28px;
+    left: 135px;
     float: left;
 }
 .page-header > h1 {
@@ -302,26 +306,21 @@ footer {
 .page-header > h1 > span {
    font-family: SABON-LT-ITALIC;
 }
-/*
-.col-xs-1 {
-    width: 12.333% !important;
-}
-*/
-
 /* Drop shadow for each rect element */
+/*
 .shadow {
     -webkit-filter: drop-shadow( 8px 9px 0px #0D004C);
             filter: drop-shadow( 8px 9px 0px #0D004C);
 }
+*/
 .text {
     direction: rtl;
     width: 27%;
     position: absolute;
     top: 33px;
-    right: 0;
+    right: 47px;
     font-family: MEODED-SERIF_OEREGULAR;
     font-size: 19px;
-
 }
 .text a {
     color: #0D004C;
@@ -333,7 +332,6 @@ footer {
     text-decoration: none;
     color: #0D004C;
 }
-
 .text p {
     color: #0D004C;
     line-height: 21px;
@@ -347,8 +345,8 @@ footer {
 }
 #svg {
     position: relative;
-    top: 0px;
-    right: 0px;
+    top: -40px;
+    right: 100px;
 }
 @media screen and (min-width: 840px) and (max-width: 1080px) {
 /*
@@ -378,6 +376,7 @@ footer {
         left: -3%;
     }
 }
+
 @media screen and (max-width: 840px) {
     .logo {
         background: url('../images/logo-mobile.png') no-repeat 28% 52%;
@@ -436,5 +435,4 @@ footer {
 }
 #grid {
     position: relative;
-    top: 110px;
 }
