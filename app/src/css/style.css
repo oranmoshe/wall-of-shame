@@ -31,9 +31,11 @@ html, body {
 }
 main {
     position: relative;
+    float: left;
+    width: 100%;
 }
 #page {
-    width: 990px;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
     min-height: 100%;
@@ -72,13 +74,6 @@ a.active > .borderline{
     position: absolute;
     top: 105%;
 }
-/*
-.col-xs-1 {
-    position: relative;
-    left: 44%;
-    top: 26px;
-}
-*/
 .background {
     background: url(../images/background.png) no-repeat center center fixed;
     background-size: 100% 100%;
@@ -87,19 +82,21 @@ a.active > .borderline{
 #vis {
     width: 940px;
     height: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer {
     height: 75px;
     position: relative;
-    max-width: 990px;
+    float: left;
     width: 100%;
-    margin: 0 auto;
+    margin: 10% auto 0 auto;
 
 }
 #toolbar {
     position: relative;
-    left: 30%;
+    left: 41%;
 }
 .footer_right {
     float: right;
@@ -110,6 +107,9 @@ footer {
     margin: 0;
     padding: 0;
     font-size: 16px;
+}
+.footer_right p span {
+    font-size: 26px;
 }
 /*
 .gender {
@@ -125,15 +125,25 @@ footer {
     top: 100px;
 	left: 100px;
     -moz-border-radius:5px;
-    background: #FAC2C0;
 	padding: 10px;
+    background: #fff4e7;
 	width: 300px;
 	font-size: 14px !important;
 	z-index: 10;
     direction: rtl;
     font-family: MEODED-SERIF_OEBOLD !important;
+    box-shadow:  8px 9px 0px #0D004C;
+    border:  2px solid #525B86;
+    padding-right: 20px;
 }
-
+.arrowTooltip {
+    background: url('../images/highlighting.png');
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -10px;
+    right: -11px;
+}
 .tooltip .title {
 	font-size: 13px;
 }
@@ -142,19 +152,28 @@ footer {
     font-weight:bold;
     color: #0D004C;
 }
+.tooltip .value {
+    font-size: 16px;
+    color: #0D004C;
+}
 .tooltip .definition {
     color: #525B86;
     font-size: 12px !important;
 }
 
 .arrow {
-    background: url('../images/arrow.png') no-repeat;
-    width: 4%;
-    height: 74px;
     position: relative;
-    float: left;
     top: -200px;
     cursor: pointer;
+    font-size: 48px;
+    float: left;
+}
+.arrow a {
+    color: #0D004C;
+}
+.arrow a:hover {
+    text-decoration: none;
+    color: #F44F2F;
 }
 /*
 .see {
@@ -270,11 +289,12 @@ footer {
     padding: 0 !important;
     margin: 0 !important;
     position: relative;
-    top: 33px;
+    top: 111px;
+    left: 10px;
     float: left;
 }
 .page-header > h1 {
-    font-size: 43px;
+    font-size: 40px;
     color: #525b86;
     font-weight: normal;
     font-family: MEODED-SERIF_OEREGULAR;
@@ -300,15 +320,23 @@ footer {
     top: 33px;
     right: 0;
     font-family: MEODED-SERIF_OEREGULAR;
-    font-size: 18px;
+    font-size: 19px;
+
 }
-.text h2 {
+.text a {
     color: #0D004C;
-    font-size: 3em;
+    font-size: 52px;
     font-weight: bold;
 }
+
+.text a:hover {
+    text-decoration: none;
+    color: #0D004C;
+}
+
 .text p {
     color: #0D004C;
+    line-height: 21px;
 }
 .text p span {
     color: #525b86;
@@ -319,8 +347,8 @@ footer {
 }
 #svg {
     position: relative;
-    top: -80px;
-    right: 110px;
+    top: 0px;
+    right: 0px;
 }
 @media screen and (min-width: 840px) and (max-width: 1080px) {
 /*
@@ -405,4 +433,8 @@ footer {
     position: relative;
     top: 70px;
     left: 8%;
+}
+#grid {
+    position: relative;
+    top: 110px;
 }
