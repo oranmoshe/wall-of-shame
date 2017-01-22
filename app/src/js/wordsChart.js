@@ -295,16 +295,23 @@ function bubbleChart() {
     // change outline to indicate hover state.
 //    d3.select(this).attr('stroke', '#F44F2F');
 
-    var content = '<span class="name">המילה: </span><span class="value">' +
+    var content = '<span class="value">' +
                   d.word + '</span><br/>' +
-                  '<span class="name">כמות: </span><span class="value">' +
+                  '<span class="value">' +
                   addCommas(d.value) +
                   '</span><br/>' +
-                  '<span class="name">הגדרה: </span><span class="value definition">' +
+                  '<span class="value definition">' +
                   d.definition +
-                  '</span>';
+                  '</span>' + '<span class="arrowTooltip">';
     tooltip.showTooltip(content, d3.event);
   }
+
+
+/*
+    <span class="name">המילה: </span>
+    <span class="name">כמות: </span>
+    <span class="name">הגדרה: </span>
+*/
 
   /*
    * Hides tooltip
