@@ -45,24 +45,24 @@ main {
 }
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
-    width: 5%;
+    width: 42px;
     height: 40px;
     cursor: pointer;
     float: left;
 }
 .splitGender {
     background: url('../images/male-female.png') no-repeat;
-    width: 6%;
+    width: 67px;
     height: 40px;
     cursor: pointer;
-    position: absolute;
-    left: 15%;
+    float: right;
+    display: block;
 }
 a.active > .border {
     border-bottom: 3px solid #525B86;
     width: 34px;
     position: absolute;
-    top: 83%;
+    top: 112%;
 }
 a.active > .borderline{
     border-bottom: 3px solid #525B86;
@@ -98,7 +98,10 @@ footer {
 
 
 .footer_left {
-
+    float: left;
+    position: relative;
+    left: 43%;
+    width: 15%;
 }
 
 .footer_right {
@@ -165,12 +168,11 @@ footer {
 }
 
 .arrow {
-    position: relative;
-    top: -300px;
     cursor: pointer;
     font-size: 48px;
-    left: 90px;
     float: left;
+    margin-left: 7%;
+    margin-top:  -7%;
 }
 .arrow a {
     color: #0D004C;
@@ -293,8 +295,8 @@ footer {
     padding: 0 !important;
     margin: 0 !important;
     position: relative;
-    top: 28px;
-    left: 135px;
+    top: 44px;
+    left: 11%;
     float: left;
 }
 .page-header > h1 {
@@ -414,6 +416,11 @@ footer {
     }
 
 }
+@media (min-width: 1600px) {
+    .container {
+        width: 97% !important;
+    }
+}
 @media screen and (min-width: 480px) and (max-width: 1080px) {
     #vis {
         width: 740px;
@@ -435,4 +442,5 @@ footer {
 }
 #grid {
     position: relative;
+    top: 100px;
 }
