@@ -1,13 +1,3 @@
-/*
-@font-face {
-    font-family: BOD_I;
-    src: url("./fonts/BOD_I.TTF");
-}
-@font-face {
-    font-family: BOD_R;
-    src: url("./fonts/BOD_R.TTF");
-}
-*/
 @font-face {
     font-family: MEODED-SERIF_OEBOLD;
     src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
@@ -16,12 +6,6 @@
     font-family: SABON-LT-ITALIC;
     src: url("./fonts/SABON-LT-ITALIC.TTF");
 }
-/*
-@font-face {
-    font-family: SABON-LT-ROMAN;
-    src: url("./fonts/SABON-LT-ROMAN.TTF");
-}
-*/
 @font-face {
     font-family: MEODED-SERIF_OEREGULAR;
     src: url("./fonts/MEODED-SERIF_OEREGULAR.OTF");
@@ -77,9 +61,11 @@ a.active > .borderline{
 .background {
    background: url(../images/background.png) no-repeat top center fixed;
    background-color: #fff4e7;
-
 }
-
+.breakTheWall {
+   background: url(../images/breakTheWall.png) no-repeat top center fixed;
+   background-color: #fff4e7;
+}
 #vis {
     width: 940px;
     height: 600px;
@@ -98,7 +84,7 @@ footer {
 .footer_left {
     float: left;
     position: relative;
-    left: 43%;
+    left: 40%;
     width: 15%;
 }
 
@@ -106,6 +92,7 @@ footer {
     float: right;
     font-family: MEODED-SERIF_OEREGULAR;
     color: #525b86;
+    margin-right: 5%;
 }
 .footer_right p {
     margin: 0;
@@ -180,33 +167,6 @@ footer {
     text-decoration: none;
     color: #F44F2F;
 }
-
-.wallOfshame {
-    background: url('../images/wallShame.png') no-repeat;
-    width: 6%;
-    height: 70px;
-    position: relative;
-    top: 350px;
-    left: 18%;
-    float: left;
-    cursor: pointer;
-    color: #525B86;
-}
-
-
-/*
-.wordsOfShame {
-    background: url(../images/wallOfShame.png) no-repeat fixed;
-    background-size: 100% 100%;
-}
-*/
-/*
-.logo {
-    background: url('../images/homeScreen-logo.png') no-repeat center;
-    width: 100%;
-    height: 480px;
-}
-*/
 .page-header {
     border-bottom: none !important;
     padding: 0 !important;
@@ -267,38 +227,54 @@ footer {
     top: -40px;
     right: 100px;
 }
+/* break the wall page */
+.arrowDown {
+    cursor: pointer;
+    font-size: 48px;
+    position: relative;
+    left: 11%;
+    top: -12px;
+    float: left;
+}
+.arrowDown a {
+    color: #0D004C;
+}
+.arrowDown a:hover {
+    text-decoration: none;
+    color: #F44F2F;
+}
+#grid svg {
+    position: relative;
+    top: 70px;
+}
+#grid {
+    position: relative;
+    top: 100px;
+    left: -12%;
+}
+/* ---------------------- */
+
+/* wall of shame page */
+.right {
+    margin-left: 20%;
+}
+.footer_left_wall {
+    float: left;
+    position: relative;
+    left: 6%;
+    width: 15%;
+}
+/* ---------------------- */
 @media screen and (min-width: 840px) and (max-width: 1080px) {
-/*
-    .SeeTheWall {
-        width: 8%;
-        left: 16%;
-    }
-*/
-     .wallOfshame {
-        width: 10%;
-/*
-    }
-    .contactUs {
-        width: 8%;
-    }
-    .aboutUs {
-        width: 8%;
-        left: 35%;
-    }
-    .breakTheWall {
-        width: 9%;
-        left: 27%;
-        top: 155px;
-*/
-    }
-    main{
-        left: -3%;
-    }
+
 }
 
 @media (min-width: 1241px) {
     .background {
         background-size: 86%;
+    }
+    .breakTheWall {
+       background-size: 86%;
     }
 }
 
@@ -317,15 +293,4 @@ footer {
     #toolbar {
         top: 250px;
     }
-}
-
-
-/* break the wall page */
-#grid svg {
-    position: relative;
-    top: 70px;
-}
-#grid {
-    position: relative;
-    top: 100px;
 }

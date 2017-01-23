@@ -3,43 +3,38 @@
 <head>
   <meta charset="UTF-8"/>
   <title>Wall Of Shame</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="icon" href="favicon.png">
   <link rel="stylesheet" href="./src/css/style.css">
   <link rel="stylesheet" href="./src/css/bootstrap.min.css">
 </head>
 <body class="background">
-      <div id="page">
-          <div class="page-header">
-            <h1>לראות ולהבין</h1>
-          </div>
-          <main>
-            <div id="vis"></div>
-            <section class="text">
-                <a href="index.html">בושה וחרפה</a>
-                <p>השיח הפוגעני כנגד נשים זוכה, לא אחת, לתגובות מבטלות ומשתיקות ובשל כך היה חשוב לנו לנסות ולהביא את המספרים שמאחורי האלימות המינית, המיזוגיניה ההחפצה והביטול לו זוכות נשים.<br><br>
-                <span>פיתחנו תוסף לכרום הבוחן לאורך היסטורית הגלישה באינטרנט עד כמה אנו חשופים לתוכן מילולי מכפיש ופוגעני כפלי נשים על בסיס יומיומי.</span></p>
-            </section>
-            <div id="button1" class="arrow"><a href="breakTheWall.html">&#60;</a></div>
-          </main>
-          <footer class="footer">
-            <div id="toolbar" class="container">
-                <div class="footer_left">
-                    <a href="#" id="all" class="button allGender active"><div class="border"></div></a>
-                    <a href="#" id="splitGender" class="button splitGender"><div class="borderline"></div></a>
-                </div>
-                <div class="footer_right"><p>כל הנתונים באתר מתוך פייסבוק<span> *</span></p></div>
+    <div id="page">
+      <header class="page-header">
+        <h1>לראות ולהבין</h1>
+      </header>
+      <main>
+        <div id="vis"></div>
+        <section class="text">
+            <a href="index.html">בושה וחרפה</a>
+            <p>השיח הפוגעני כנגד נשים זוכה, לא אחת, לתגובות מבטלות ומשתיקות ובשל כך היה חשוב לנו לנסות ולהביא את המספרים שמאחורי האלימות המינית, המיזוגיניה ההחפצה והביטול לו זוכות נשים.<br><br>
+            <span>פיתחנו תוסף לכרום הבוחן לאורך היסטורית הגלישה באינטרנט עד כמה אנו חשופים לתוכן מילולי מכפיש ופוגעני כפלי נשים על בסיס יומיומי.</span></p>
+        </section>
+        <div id="button1" class="arrow"><a href="breakTheWall.html">&#60;</a></div>
+      </main>
+      <footer class="footer">
+        <div id="toolbar" class="container">
+            <div class="footer_left">
+                <a href="#" id="all" class="button allGender active"><div class="border"></div></a>
+                <a href="#" id="splitGender" class="button splitGender"><div class="borderline"></div></a>
             </div>
-          </footer>
+            <div class="footer_right"><p>כל הנתונים באתר מתוך פייסבוק<span> *</span></p></div>
+        </div>
+      </footer>
     </div>
     <script src="src/lib/d3.js"></script>
     <script src="src/js/tooltip.js"></script>
     <script src="src/js/wordsChart.js"></script>
-    <script>
-      document.getElementById("button1").onclick = function() {
-        window.location.href = "breakTheWall.html";
-      };
-    </script>
 </body>
 </html>
