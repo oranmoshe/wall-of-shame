@@ -55,11 +55,14 @@ var column = row.selectAll(".square")
     .attr("width", function(d) { return d.width; })
     .attr("height", function(d) { return d.height; })
     .style("fill", "f54f2e")
-    .style("stroke", "#fff")
-    .on('click', function(d) {
-       d.click ++;
-       if ((d.click)%4 == 0 ) { d3.select(this).style("fill","#fff"); }
-       if ((d.click)%4 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
-       if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
-       if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
-    });
+    .style("stroke", "#fff");
+//    .on('click', function(d) {
+//       d.click ++;
+//       if ((d.click)%4 == 0 ) { d3.select(this).attr("xlink:href", "http://www.e-pint.com/epint.jpg") }
+//       if ((d.click)%4 == 1 ) { d3.select(this).style("fill","#2C93E8"); }
+//       if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
+//       if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
+//    });
+
+
+

@@ -1,3 +1,4 @@
+/*
 @font-face {
     font-family: BOD_I;
     src: url("./fonts/BOD_I.TTF");
@@ -6,6 +7,7 @@
     font-family: BOD_R;
     src: url("./fonts/BOD_R.TTF");
 }
+*/
 @font-face {
     font-family: MEODED-SERIF_OEBOLD;
     src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
@@ -14,10 +16,12 @@
     font-family: SABON-LT-ITALIC;
     src: url("./fonts/SABON-LT-ITALIC.TTF");
 }
+/*
 @font-face {
     font-family: SABON-LT-ROMAN;
     src: url("./fonts/SABON-LT-ROMAN.TTF");
 }
+*/
 @font-face {
     font-family: MEODED-SERIF_OEREGULAR;
     src: url("./fonts/MEODED-SERIF_OEREGULAR.OTF");
@@ -45,24 +49,24 @@ main {
 }
 .allGender {
     background: url('../images/2sex_icon.png') no-repeat;
-    width: 5%;
+    width: 42px;
     height: 40px;
     cursor: pointer;
     float: left;
 }
 .splitGender {
     background: url('../images/male-female.png') no-repeat;
-    width: 6%;
+    width: 67px;
     height: 40px;
     cursor: pointer;
-    position: absolute;
-    left: 15%;
+    float: right;
+    display: block;
 }
 a.active > .border {
     border-bottom: 3px solid #525B86;
     width: 34px;
     position: absolute;
-    top: 83%;
+    top: 112%;
 }
 a.active > .borderline{
     border-bottom: 3px solid #525B86;
@@ -71,8 +75,9 @@ a.active > .borderline{
     top: 105%;
 }
 .background {
-    background: url(../images/background.png) no-repeat center center fixed;
-    background-size: 100% 100%;
+   background: url(../images/background.png) no-repeat top center fixed;
+   background-color: #fff4e7;
+
 }
 
 #vis {
@@ -89,16 +94,12 @@ footer {
     height: 60px;
     clear: both;
 }
-/*
-#toolbar {
-    position: relative;
-    left: 33%;
-}
-*/
-
 
 .footer_left {
-
+    float: left;
+    position: relative;
+    left: 43%;
+    width: 15%;
 }
 
 .footer_right {
@@ -165,12 +166,10 @@ footer {
 }
 
 .arrow {
-    position: relative;
-    top: -300px;
     cursor: pointer;
     font-size: 48px;
-    left: 90px;
     float: left;
+    margin-left: 7%;
 }
 .arrow a {
     color: #0D004C;
@@ -179,39 +178,7 @@ footer {
     text-decoration: none;
     color: #F44F2F;
 }
-/*
-.see {
-    position: relative;
-    top: 76%;
-    left: 14%;
-    font-size: 12px;
-    font-family: BOD_I;
-}
-.see > span {
-   font-family: BOD_R;
-}
-.contactUs {
-    background: url('../images/contactUs.png') no-repeat;
-    width: 6%;
-    height: 70px;
-    position: relative;
-    top: 250px;
-    left: 15%;
-    float: left;
-    cursor: pointer;
-    color: #525B86;
-}
-.contact {
-    position: relative;
-    top: -13%;
-    left: -11%;
-    font-size: 12px;
-    font-family: BOD_I;
-}
-.contact > span {
-    font-family: BOD_R;
-}
-*/
+
 .wallOfshame {
     background: url('../images/wallShame.png') no-repeat;
     width: 6%;
@@ -223,66 +190,14 @@ footer {
     cursor: pointer;
     color: #525B86;
 }
+
+
 /*
-.wall {
-    position: relative;
-    top: 64%;
-    left: -73%;
-    font-size: 12px;
-    font-family: BOD_I;
-}
-.wall > span {
-   font-family: BOD_R;
-}
-.aboutUs {
-    background: url('../images/aboutUs.png') no-repeat;
-    width: 6%;
-    height: 70px;
-    position: relative;
-    top: 390px;
-    left: 42%;
-    float: left;
-    cursor: pointer;
-    color: #525B86;
-}
-.about {
-    position: relative;
-    top: -8%;
-    left: 40%;
-    font-size: 12px;
-    font-family: BOD_I;
-}
-.about > span {
-    font-family: BOD_R;
-}
-*/
-/*
-.breakTheWall {
-    background: url('../images/breakTheWall.png') no-repeat;
-    width: 6%;
-    height: 70px;
-    position: relative;
-    top: 215px;
-    left: 44%;
-    float: left;
-    cursor: pointer;
-    color: #525B86;
-}
-.break {
-    position: relative;
-    top: 45%;
-    left: 56%;
-    font-size: 12px;
-    font-family: BOD_I;
-}
-.break > span {
-    font-family: BOD_R;
-}
-*/
 .wordsOfShame {
     background: url(../images/wallOfShame.png) no-repeat fixed;
     background-size: 100% 100%;
 }
+*/
 .logo {
     background: url('../images/homeScreen-logo.png') no-repeat center;
     width: 100%;
@@ -293,8 +208,8 @@ footer {
     padding: 0 !important;
     margin: 0 !important;
     position: relative;
-    top: 28px;
-    left: 135px;
+    top: 86px;
+    left: 15%;
     float: left;
 }
 .page-header > h1 {
@@ -377,42 +292,11 @@ footer {
     }
 }
 
-@media screen and (max-width: 840px) {
-    .logo {
-        background: url('../images/logo-mobile.png') no-repeat 28% 52%;
-    }
-/*
-    .SeeTheWall {
-        width: 16%;
-        left: 0;
-    }
-*/
-    .wallOfshame {
-        left: -100px;
-    }
-/*
-    .contactUs {
-        width: 14%;
-        left: -2%;
-    }
-    .aboutUs {
-        width: 10%;
-        left: 10%;
-    }
-    .breakTheWall {
-        width: 13%;
-        left: -2%;
-    }
-    .break {
-        top: 63%;
-        left: 26%;
-    }
-*/
-    .wall {
-        left: -40%;
-        top: 85%;
-    }
 
+@media (min-width: 1600px) {
+    .container {
+        width: 97% !important;
+    }
 }
 @media screen and (min-width: 480px) and (max-width: 1080px) {
     #vis {
@@ -435,4 +319,5 @@ footer {
 }
 #grid {
     position: relative;
+    top: 100px;
 }
