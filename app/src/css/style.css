@@ -276,6 +276,12 @@ footer {
     .breakTheWall {
        background-size: 86%;
     }
+    #grid {
+        left: 20px;
+    }
+    .text {
+        right: 12%;
+    }
 }
 
 @media (min-width: 1600px) {
