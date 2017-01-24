@@ -66,3 +66,20 @@ var column = row.selectAll(".square")
 
 
 
+
+(function ($) {
+$(document).ready(function(){
+$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+  {
+    tags: "awesome",
+    tagmode: "any",
+    format: "json"
+  },
+  function(data) {
+    $.each(data.items, function(i,item){
+      $("<img/>").attr("width", "40px").attr("height", "40px").attr("src", item.media.m).appendTo("#grid");
+      if ( i == 5 ) return false;
+    });
+  });
+});
+})(jQuery);
