@@ -4,6 +4,7 @@ import json
 import codecs
 import csv
 import requests,os
+
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -28,6 +29,37 @@ def getAllWords():
     	val['total_amount'] = doc['total_amount'];
     	data.append(val)
     data = json.dumps(data).decode('unicode-escape').encode('utf8')
+
+    client.close()
+
+    return data
+
+def getAllPosts():
+    client = pymongo.MongoClient(MONGODB_URI)
+
+    db = client.get_default_database()
+
+    songs = db['posts']
+
+    cursor = songs.find()
+    data = []
+    for doc in cursor:
+        val = {}
+        val['username'] = doc['username'];
+        val['posturl'] = doc['posturl'];
+        val['userimg'] = doc['userimg'];
+        val['userContent'] = json.dumps(doc['userContent']);
+        comments = []
+        for doc2 in doc['comments']:
+            val2 = {}
+            val2['comment_pic'] = doc2['comment_pic'];
+            val2['comment_content'] = doc2['comment_content'];
+            val2['offensive'] = doc2['offensive'];
+            val2['comment_name'] = doc2['comment_name'];
+            comments.append(val2)
+        val['comments'] = comments
+        data.append(val)
+    #data = data.decode('unicode-escape').encode('utf8')
 
     client.close()
 
@@ -91,21 +123,17 @@ def convertToCSV():
 
 
 
-def updateWordAmount(_word,amount):
-
-
+def addPost(post):
     client = pymongo.MongoClient(MONGODB_URI)
 
     db = client.get_default_database()
-
-    songs = db['words']
-
-    newAmount = songs.find_one({"word": _word})['total_amount']+ int(amount)
-    query = {"word":_word}
-    songs.update_one(query, {'$set': {'total_amount': newAmount}})
+    
+    songs = db['posts']
+    many = {}
+    many["name"] = "dd"
+    songs.insert_one(json.dumps("oran"))
 
     client.close()
-
 
 
 

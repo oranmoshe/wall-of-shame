@@ -2,6 +2,7 @@ from flask import Flask, url_for, json,Response,render_template,send_from_direct
 from flask_cors import CORS, cross_origin
 import requests,os
 import words
+import posts
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -35,6 +36,24 @@ def updateamount():
       amount = request.form['amount']
       words.updateWordAmount(word,amount)
       return word
+
+@app.route('/addPost',methods = ['POST', 'GET'])
+@cross_origin()
+def addPost():
+    if request.method == 'POST':
+      #post = request.get_json(force=True)
+      posts.addPost("post")
+      resp = Response(json.dumps("json_data"), status=200, mimetype='application/json')
+      resp.headers['Link'] = 'http://abc'
+      return resp
+
+@app.route('/getAllPosts',methods = ['POST', 'GET'])
+@cross_origin()
+def getAllPosts():
+    json_data = posts.getAllPosts()
+    resp = Response(json.dumps(json_data), status=200, mimetype='application/json')
+    resp.headers['Link'] = 'http://abc'
+    return resp
 
 
 if __name__ == '__main__':

@@ -1,0 +1,32 @@
+body{
+	position: relative;
+	top: 0px;
+}
+div.row {
+    top: 0px;
+    display: block;
+    margin-bottom: 4px;
+    width: 10px;
+    margin-right: 2px;
+    background-color: teal;
+}
+section{
+    overflow: auto;
+}
+
+section.column {
+	display: block;
+    float: left;
+    width: 10px;
+    margin-right: 2px;
+    background-color: black;
+    overflow: auto;
+}
+
+.popup{
+	width: 100px;
+	height: 200px;
+	position: absolute;
+	background-color: red;
+	display: none;
+}
