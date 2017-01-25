@@ -17,7 +17,7 @@ chrome.runtime.onMessage.addListener(
 
     if (request.set_shown_words_list != null){
       tabs_words_list[sender.tab.id] =  request.set_shown_words_list;
-      sendResponse({farewell: '<<<<words>>>>: '+ sender.tab.id +':  dddd'+update_amounts(sender.tab.id)});
+      sendResponse({farewell: '<<<<words>>>>: '+ sender.tab.id +': '+update_amounts(sender.tab.id)});
     }
 
     if (request.get_shown_words_list != null){
