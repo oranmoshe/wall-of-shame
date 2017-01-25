@@ -265,10 +265,12 @@ footer {
     width: 15%;
 }
 /* ---------------------- */
-@media screen and (min-width: 840px) and (max-width: 1080px) {
 
+@media (min-width: 1600px) {
+    .container {
+        width: 97% !important;
+    }
 }
-
 @media (min-width: 1241px) {
     .background {
         background-size: 86%;
@@ -284,52 +286,13 @@ footer {
     }
 }
 
-@media (min-width: 1600px) {
-    .container {
-        width: 97% !important;
+@media screen and (min-width: 840px) and (max-width: 1240px) {
+    .background {
+        background-size: 86%;
     }
-}
-@media screen and (min-width: 480px) and (max-width: 1080px) {
-    #vis {
-        width: 740px;
-        height: 400px;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    #toolbar {
-        top: 250px;
+    .breakTheWall {
+       background-size: 86%;
     }
 }
 
 
-.wall {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 0;
-}
-
-.wall img {
-  margin: 0 0 -5px 0;
-  display: inline-block;
-  width: 14.285%;
-  z-index: 0;
-  position: relative;
-}
-
-.wall:after {
-  content: '';
-  display: block;
-  position: fixed;
-  top: 0;
-  height: 100%;
-  left: 0;
-  width: 100%;
-  z-index: 20;
-  background: rgba(255, 255, 255, 0.2);
-  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0.98) 100%);
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.2)), color-stop(70%, rgba(255, 255, 255, 0.6)), to(rgba(255, 255, 255, 0.98)));
-  background: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.6) 70%, rgba(255, 255, 255, 0.98) 100%);
-}
