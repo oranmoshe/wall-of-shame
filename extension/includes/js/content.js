@@ -80,6 +80,7 @@ function makeJson(selector){
 		jsoncomments.push(jsoncomment);
 	});
 	json['comments'] = jsoncomments;
+	json = JSON.stringify(json);
 	insertPost(json);
 	console.log(json);
 }

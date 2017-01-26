@@ -5,8 +5,7 @@ import codecs
 import csv
 import requests,os
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+import importlib
 
 MONGODB_URI = 'mongodb://oran:1234@ds139715.mlab.com:39715/nashim'
 
