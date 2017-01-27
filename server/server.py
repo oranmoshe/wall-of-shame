@@ -41,9 +41,9 @@ def updateamount():
 @cross_origin()
 def addPost():
     if request.method == 'POST':
-      #post = request.get_json(force=True)
-      posts.addPost("post")
-      resp = Response(json.dumps("json_data"), status=200, mimetype='application/json')
+      post = request.get_json(force=True)
+      json_data = posts.addPost(json.dumps(post))
+      resp = Response(json.dumps(json_data), status=200, mimetype='application/json')
       resp.headers['Link'] = 'http://abc'
       return resp
 
