@@ -92,7 +92,7 @@ footer {
     float: right;
     font-family: MEODED-SERIF_OEREGULAR;
     color: #525b86;
-    margin-right: 5%;
+    margin-right: 1%;
 }
 .footer_right p {
     margin: 0;
@@ -197,7 +197,7 @@ footer {
     width: 22%;
     position: absolute;
     top: 53px;
-    right: 143px;
+    right: 62px;
     font-family: MEODED-SERIF_OEREGULAR;
     font-size: 16px;
 }
@@ -264,6 +264,28 @@ footer {
     left: 6%;
     width: 15%;
 }
+
+#container {
+/*    background-color: #ffffff;*/
+    height: 500px;
+    width: 100%;
+    position: relative;
+    top: 64px;
+    float: left;
+    left: 10px;
+    padding-right: 11%;
+    padding-left: 4%;
+}
+.unit {
+    background-color: #f54f2e;
+    height: 20px;
+    width: 20px;
+    margin: 1px;
+    display: inline-block;
+    float: left
+}
+
+
 /* ---------------------- */
 
 @media (min-width: 1600px) {
@@ -288,11 +310,9 @@ footer {
 
 @media screen and (min-width: 840px) and (max-width: 1240px) {
     .background {
-        background-size: 86%;
+        background-size: 100%;
     }
     .breakTheWall {
-       background-size: 86%;
+       background-size: 100%;
     }
 }
-
-

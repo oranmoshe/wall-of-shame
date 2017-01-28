@@ -29,7 +29,6 @@ function getData(){
 	  .always(function() {
 	    console.log( "complete" );
 	  });
-
 }
 
 function draw(dataset){
@@ -84,7 +83,6 @@ function draw(dataset){
 		$('div.row').bind('mouseleave',function(e){
 
 				$('.popup').css("display","none");
-
 
 		});
 }
