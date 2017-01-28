@@ -73,13 +73,15 @@ $(document).ready(function() {
            unit.appendTo('#container');
        }
    }
+
+   var images = ["https://scontent.fsdv1-1.fna.fbcdn.net/v/t1.0-1/p200x200/16194969_1423857557646916_4202594077164282223_n.jpg?oh=b1c55abd7509f033532b7a6918f33a0d&oe=591A0842"]
 	setInterval(function(){
 		var random = Math.floor((Math.random() * width*height-1) + 1);
 		console.log(random);
     	var all = $('#container').children();
     	$(all).get(random)
     	var listItem = $('#container');
-		$('#container :nth-child('+ random +')').css("background-color","#000000");
+		$('#container :nth-child('+ random +')').css("background-image", 'url('+ images[0] +')' ).css("background-size", '20px' );
 	}, 3000);
 
 });
