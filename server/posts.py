@@ -26,31 +26,7 @@ def getPostsByUser(username):
 
     songs = db['posts']
 
-    cursor = songs.find({"username": username}).sort([("_id",pymongo.DESCENDING)]).limit(1)
-    # data = []
-    # for doc in cursor:
-    #     val = {}
-    #     if(doc ='username'):
-    #         val['username'] = doc
-    #     if(doc ='userimg'):
-    #         val['userimg'] = doc
-    #     if(doc ='posturl'):
-    #         val['posturl'] = doc
-    #     if(doc ='userContent'):
-    #         val['userContent'] = json.dumps(doc)
-    #     if(doc ='comments'):
-    #         val['comments'] = json.dumps(doc)
-    #     comments = []
-    #     for doc2 in doc['comments']:
-    #         val2 = {}
-    #         val2['comment_pic'] = doc2['comment_pic'];
-    #         val2['comment_content'] = doc2['comment_content'];
-    #         val2['offensive'] = doc2['offensive'];
-    #         val2['comment_name'] = doc2['comment_name'];
-    #         comments.append(val2)
-    #     val['comments'] = comments
-    #     data.append(val)
-    #data = data.decode('unicode-escape').encode('utf8')
+    cursor = songs.find({"username": username}).sort([("_id",pymongo.DESCENDING)]).limit(10)
 
     client.close()
 

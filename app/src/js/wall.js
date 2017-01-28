@@ -6,7 +6,7 @@ function init(){
 function getData(){
 	// Assign handlers immediately after making the request,
 	// and remember the jqxhr object for this request
-	var jqxhr = $.getJSON( "http://nashim.herokuapp.com/getAllPosts", function() {
+	var jqxhr = $.getJSON( "http://nashim.herokuapp.com/getPostsByUser/הצינור", function() {
 	  console.log( "success" );
 	})
 	  .done(function(data) {
