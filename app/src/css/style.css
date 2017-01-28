@@ -281,6 +281,9 @@ section.column {
 	display: none;
 }
 
+.breakTheWall footer {
+    position: fixed;
+}
 /* ---------------------- */
 
 
