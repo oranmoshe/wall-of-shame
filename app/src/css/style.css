@@ -105,13 +105,13 @@ footer {
 .tooltip {
     position: absolute;
     top: 100px;
-	left: 100px;
+    left: 100px;
     -moz-border-radius:5px;
-	padding: 10px;
+    padding: 10px;
     background: #fff4e7;
-	width: 300px;
-	font-size: 14px !important;
-	z-index: 10;
+    width: 300px;
+    font-size: 14px !important;
+    z-index: 10;
     direction: rtl;
     font-family: MEODED-SERIF_OEBOLD !important;
     box-shadow:  8px 9px 0px #0D004C;
@@ -127,7 +127,7 @@ footer {
     right: -11px;
 }
 .tooltip .title {
-	font-size: 13px;
+    font-size: 13px;
 }
 
 .tooltip .name {
@@ -262,7 +262,7 @@ section{
 }
 
 section.column {
-	display: block;
+    display: block;
     float: right;
     width: 10px;
     margin-right: 2px;
@@ -274,11 +274,11 @@ section.column {
 }
 
 .popup{
-	width: 100px;
-	height: 200px;
-	position: absolute;
-	background-color: red;
-	display: none;
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    background-color: red;
+    display: none;
 }
 
 .breakTheWall footer {
@@ -307,8 +307,6 @@ section.column {
     top: 64px;
     float: left;
     left: 10px;
-    padding-right: 4%;
-    padding-left: 4%;
 }
 .unit {
     background-color: #f54f2e;
@@ -321,25 +319,50 @@ section.column {
 
 /* ---------------------- */
 
-@media (min-width: 1600px) {
-    .container {
-        width: 97% !important;
-    }
-}
-@media (min-width: 1241px) {
+@media screen and (max-width: 395px){
     .background {
         background-size: 90%;
     }
     .breakTheWall {
        background-size: 100%;
     }
+    #container {
+        width: 264px;
+    }
 }
 
-@media screen and (min-width: 840px) and (max-width: 1240px) {
+@media screen and (min-width: 396px) and (max-width: 527px){
     .background {
-        background-size: 100%;
+        background-size: 90%;
     }
     .breakTheWall {
        background-size: 100%;
+    }
+    #container {
+        width: 528px;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 791px){
+    .background {
+        background-size: 90%;
+    }
+    .breakTheWall {
+       background-size: 100%;
+    }
+    #container {
+        width: 528px;
+    }
+}
+
+@media screen and (min-width: 792px) {
+    .background {
+        background-size: 90%;
+    }
+    .breakTheWall {
+       background-size: 100%;
+    }
+    #container {
+        width: 792px;
     }
 }
