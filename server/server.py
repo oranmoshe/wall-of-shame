@@ -3,6 +3,7 @@ from flask_cors import CORS, cross_origin
 import requests,os
 import words
 import posts
+import csvcon
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -22,7 +23,7 @@ def success(name):
 @app.route('/getPlotCSV')
 @cross_origin()
 def plot_csv():
-    words.convertToCSV()
+    csvcon.convertToCSV()
     return send_file(os.path.dirname(os.path.abspath(__file__))+'/static/data/WordsData.csv',
                      mimetype='text/csv',
                      attachment_filename='WordsData.csv',

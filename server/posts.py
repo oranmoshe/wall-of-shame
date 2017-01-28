@@ -15,6 +15,7 @@ from bson.json_util import dumps
 from bson.json_util import dumps
 
 
+
 MONGODB_URI = 'mongodb://oran:1234@ds139715.mlab.com:39715/nashim'
 
 
@@ -86,6 +87,36 @@ def getAllPosts():
 
     return data
 
+def getPostUsersImages():
+    client = pymongo.MongoClient(MONGODB_URI)
+
+    db = client.get_default_database()
+
+    songs = db['posts']
+
+    cursor = songs.find()
+    data = []
+    for doc in cursor:
+        val = {}
+        val['username'] = doc['username'];
+        val['posturl'] = doc['posturl'];
+        val['userimg'] = doc['userimg'];
+        val['userContent'] = json.dumps(doc['userContent']);
+        comments = []
+        for doc2 in doc['comments']:
+            val2 = {}
+            val2['comment_pic'] = doc2['comment_pic'];
+            val2['comment_content'] = doc2['comment_content'];
+            val2['offensive'] = doc2['offensive'];
+            val2['comment_name'] = doc2['comment_name'];
+            comments.append(val2)
+        val['comments'] = comments
+        data.append(val)
+    #data = data.decode('unicode-escape').encode('utf8')
+
+    client.close()
+
+    return data
 
 def addPost(post):
 
@@ -123,8 +154,6 @@ def addPost(post):
         if(isPostNewer):
             query = {"posturl":val['posturl']}
             songs.update_one(query, {'$set': {'comments': val['comments']}})
-
-
     client.close()
 
     return post
