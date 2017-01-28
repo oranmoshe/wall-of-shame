@@ -58,6 +58,14 @@ def getAllPosts():
     resp.headers['Link'] = 'http://abc'
     return resp
 
+@app.route('/getRandomOffensiveUser',methods = ['POST', 'GET'])
+@cross_origin()
+def getRandomOffensiveUserImage():
+    json_data = posts.getRandomOffensiveUserImage()
+    resp = Response(json_data, status=200, mimetype='application/json')
+    resp.headers['Link'] = 'http://abc'
+    return resp
+
 @app.route('/getPostsByUser/<username>',methods = ['POST', 'GET'])
 @cross_origin()
 def getPostsByUser(username):

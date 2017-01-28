@@ -13,6 +13,7 @@ from bson.codec_options import CodecOptions
 from bson import Binary, Code
 from bson.json_util import dumps
 from bson.json_util import dumps
+import random 
 
 
 
@@ -27,6 +28,30 @@ def getPostsByUser(username):
     songs = db['posts']
 
     cursor = songs.find({"username": username}).sort([("_id",pymongo.DESCENDING)]).limit(10)
+
+    client.close()
+
+    return dumps(cursor);
+
+
+def getRandomOffensiveUserImage():
+    client = pymongo.MongoClient(MONGODB_URI)
+
+    db = client.get_default_database()
+
+    songs = db['posts']
+
+    cursor = songs.find().limit(1).skip( random.randint(0, songs.count()) )
+
+    image = {}
+    foud = False
+
+    for doc in cursor:
+        for doc2 in doc['comments']:
+            if (doc2['offensive']):
+                image["user_pic"] = doc2['comment_pic']
+                client.close()
+                return dumps(image)
 
     client.close()
 
