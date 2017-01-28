@@ -56,7 +56,12 @@ function draw(dataset){
 			if(counter2==names.length)
 				counter2 =0;
 			return d.comment_content;
-		} )
+		})
+		.attr("data-img",function(d){
+			if(counter2==names.length)
+				counter2 =0;
+			return d.comment_pic;
+		})
 		.attr("class", "row")
 		.style("height", function(d) {
 			var barHeight = d.size * 5;
@@ -71,6 +76,7 @@ function draw(dataset){
 		$('div.row').bind('mouseenter',function(e){
 			var el = $(e.target);
 			$('.popup').html('<h1>' + $(el).attr("data-name") +'</h1>')
+			$('.popup').append('<img src="'+ $(el).attr("data-img") +'"">')
 			.css("display","block")
 			.css("top",function(){
 				return $(el).position().top+20;

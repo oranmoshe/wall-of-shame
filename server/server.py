@@ -35,7 +35,9 @@ def updateamount():
       word = request.form['word']
       amount = request.form['amount']
       words.updateWordAmount(word,amount)
-      return word
+      resp = Response(json.dumps({}), status=200, mimetype='application/json')
+      resp.headers['Link'] = 'http://abc'
+      return resp
 
 @app.route('/addPost',methods = ['POST', 'GET'])
 @cross_origin()
@@ -52,6 +54,14 @@ def addPost():
 def getAllPosts():
     json_data = posts.getAllPosts()
     resp = Response(json.dumps(json_data), status=200, mimetype='application/json')
+    resp.headers['Link'] = 'http://abc'
+    return resp
+
+@app.route('/getPostsByUser/<username>',methods = ['POST', 'GET'])
+@cross_origin()
+def getPostsByUser(username):
+    json_data = posts.getPostsByUser(username)
+    resp = Response(json_data, status=200, mimetype='application/json')
     resp.headers['Link'] = 'http://abc'
     return resp
 

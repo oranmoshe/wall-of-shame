@@ -44,10 +44,12 @@ function update_amounts(tab_id){
   var words = "";
   $.each(tabs_words_list[tab_id], function(k, v) {
       //display the key and value pair
+      if(v>0)
       update_amount(k,v);
   });
   return words;
 }
+
 
 function update_amount(word,amount){
   var http = new XMLHttpRequest();
