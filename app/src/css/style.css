@@ -74,7 +74,7 @@ a.active > .borderline{
 }
 
 footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 60px;
@@ -84,7 +84,7 @@ footer {
 .footer_left {
     float: left;
     position: relative;
-    left: 40%;
+    left: 36%;
     width: 15%;
 }
 
@@ -102,15 +102,6 @@ footer {
 .footer_right p span {
     font-size: 26px;
 }
-/*
-.gender {
-    font-size: 25px;
-    fill: #F44F2F;
-    cursor: default;
-    font-family: SABON-LT-ITALIC;
-}
-*/
-
 .tooltip {
     position: absolute;
     top: 100px;
@@ -192,6 +183,7 @@ footer {
             filter: drop-shadow( 8px 9px 0px #0D004C);
 }
 */
+
 .text {
     direction: rtl;
     width: 22%;
@@ -215,7 +207,7 @@ footer {
 .text p {
     color: #0D004C;
     line-height: 21px;
-    padding-top: 15%;
+    padding-top: 10%;
 }
 .text > p > a {
     color: #0D004C !important;
@@ -225,6 +217,10 @@ footer {
 .text p span {
     color: #525b86;
 }
+.background .text {
+    right: 135px;
+}
+
 .word {
     width: 20xp;
     text-align: center;
@@ -234,7 +230,9 @@ footer {
     top: -40px;
     right: 100px;
 }
+
 /* break the wall page */
+
 .arrowDown {
     cursor: pointer;
     font-size: 48px;
@@ -251,17 +249,6 @@ footer {
     text-decoration: none;
     color: #F44F2F;
 }
-/*
-#grid svg {
-    position: relative;
-    top: 70px;
-}
-#grid {
-    position: relative;
-    top: 100px;
-    left: -12%;
-}
-*/
 div.row {
     top: 0px;
     display: block;
@@ -296,7 +283,9 @@ section.column {
 
 /* ---------------------- */
 
+
 /* wall of shame page */
+
 .right {
     margin-left: 20%;
 }
@@ -309,13 +298,13 @@ section.column {
 
 #container {
 /*    background-color: #ffffff;*/
-    height: 500px;
+    height: 450px;
     width: 100%;
     position: relative;
     top: 64px;
     float: left;
     left: 10px;
-    padding-right: 11%;
+    padding-right: 4%;
     padding-left: 4%;
 }
 .unit {
@@ -327,7 +316,6 @@ section.column {
     float: left
 }
 
-
 /* ---------------------- */
 
 @media (min-width: 1600px) {
@@ -337,16 +325,10 @@ section.column {
 }
 @media (min-width: 1241px) {
     .background {
-        background-size: 86%;
+        background-size: 90%;
     }
     .breakTheWall {
-       background-size: 86%;
-    }
-    #grid {
-        left: 20px;
-    }
-    .text {
-        right: 12%;
+       background-size: 100%;
     }
 }
 

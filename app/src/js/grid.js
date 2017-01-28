@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
-   var width = 36;
-   var height = 28;
+   var width = 30;
+   var height = 30;
    for(var x = 0; x < width; x++) {
        for(var y = 0; y < height; y++) {
            var unit = $("<div class='unit'></div>");
@@ -16,7 +16,7 @@ $(document).ready(function() {
     	var all = $('#container').children();
     	$(all).get(random)
     	var listItem = $('#container');
-		$('#container :nth-child('+ random +')').css("background-image", 'url('+ images[0] +')' ).css("background-size", '20px' );
+		$('#container :nth-child('+ random +')').css("background-image", 'url('+ images[0] +')' ).css("background-size", '20px');
 	}, 3000);
 
 });
