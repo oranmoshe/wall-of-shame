@@ -63,11 +63,11 @@
 ////       if ((d.click)%4 == 2 ) { d3.select(this).style("fill","#F56C4E"); }
 ////       if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
 ////    });
-//$(document).ready(function() {
-//    for(var x = 0; x < 36; x++) {
-//        for(var y = 0; y < 28; y++) {
-//            var unit = $("<div class='unit'></div>");
-//            unit.appendTo('#container');
-//        }
-//    }
-//});
+$(document).ready(function() {
+    for(var x = 0; x < 36; x++) {
+        for(var y = 0; y < 28; y++) {
+            var unit = $("<div class='unit'></div>");
+            unit.appendTo('#container');
+        }
+    }
+});

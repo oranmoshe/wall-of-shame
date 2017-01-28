@@ -65,7 +65,7 @@ function draw(dataset){
 		.style("background-color", function(d) {
 			if(d.offensive)
 				return "red";
-			return "blue";
+			return "#FFAE61";
 		});
 
 		$('div.row').bind('mouseenter',function(e){
@@ -73,10 +73,10 @@ function draw(dataset){
 			$('.popup').html('<h1>' + $(el).attr("data-name") +'</h1>')
 			.css("display","block")
 			.css("top",function(){
-				return $(el).position().top+20;
+				return $(el).position().top+170;
 			})
 			.css("left",function(){
-				return $(el).position().left+20;
+				return $(el).position().left+870;
 			});
 		});
 

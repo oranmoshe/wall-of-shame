@@ -92,7 +92,7 @@ footer {
     float: right;
     font-family: MEODED-SERIF_OEREGULAR;
     color: #525b86;
-    margin-right: 1%;
+    margin-right: 3%;
 }
 .footer_right p {
     margin: 0;
@@ -205,6 +205,7 @@ footer {
     color: #0D004C;
     font-size: 45px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .text a:hover {
@@ -214,6 +215,12 @@ footer {
 .text p {
     color: #0D004C;
     line-height: 21px;
+    padding-top: 15%;
+}
+.text > p > a {
+    color: #0D004C !important;
+    font-size: 16px;
+    font-weight: normal;
 }
 .text p span {
     color: #525b86;
@@ -238,11 +245,13 @@ footer {
 }
 .arrowDown a {
     color: #0D004C;
+    text-decoration: none;
 }
 .arrowDown a:hover {
     text-decoration: none;
     color: #F44F2F;
 }
+/*
 #grid svg {
     position: relative;
     top: 70px;
@@ -251,6 +260,76 @@ footer {
     position: relative;
     top: 100px;
     left: -12%;
+}
+*/
+div.row {
+    top: 0px;
+    display: block;
+    margin-bottom: 2px;
+    width: 10px;
+    margin-right: 2px;
+    background-color: teal;
+}
+section{
+    overflow: auto;
+}
+
+section.column {
+	display: block;
+    float: right;
+    width: 10px;
+    margin-right: 2px;
+    background-color: #fff;
+    overflow: auto;
+    position: relative;
+    top: 171px;
+    right: 30%;
+}
+
+.popup{
+	width: 100px;
+	height: 200px;
+	position: absolute;
+	background-color: red;
+	display: none;
+}
+.categoryHeader {
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    background:#FFAE61;
+    color: red;
+    display: inline-block;
+    padding: 3px 50px;
+    text-align: right;
+}
+main h2 {
+    display:inline;
+    float:left;
+}
+.category {
+    position: absolute;
+    top: 134px;
+    width: 100%;
+    right: 0;
+}
+main ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 /* ---------------------- */
 
