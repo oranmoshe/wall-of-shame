@@ -293,44 +293,7 @@ section.column {
 	background-color: red;
 	display: none;
 }
-.categoryHeader {
-    border-bottom: 2px solid #fff;
-    border-left: 2px solid #fff;
-    background:#FFAE61;
-    color: red;
-    display: inline-block;
-    padding: 3px 50px;
-    text-align: right;
-}
-main h2 {
-    display:inline;
-    float:left;
-}
-.category {
-    position: absolute;
-    top: 134px;
-    width: 100%;
-    right: 0;
-}
-main ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
-li {
-    float: left;
-}
-
-li a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
 /* ---------------------- */
 
 /* wall of shame page */
