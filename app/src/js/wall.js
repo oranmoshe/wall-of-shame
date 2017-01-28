@@ -1,14 +1,3 @@
-var names = ["oran","mark","steven","oran3","mark","steven"];
-var dataset = [ 5, 10, 15 ];
-var dataset2 = [ 3, 2, 15, 1, 2 ];
-var dataset3 = [ 3, 2, 3, 1, 2 ];
-var dataset4 = [ 3, 2, 3, 1, 2 ];
-var counter = 0;
-var counter2 = 0;
-var db = [];
-db.push(dataset2);
-db.push(dataset3);
-db.push(dataset4);
 
 function init(){
 	getData();
@@ -32,6 +21,7 @@ function getData(){
 }
 
 function draw(dataset){
+	var counter = 0;
 	d3.select("main").selectAll("section")
 		.data(dataset)
 		.enter()
@@ -53,13 +43,9 @@ function draw(dataset){
 		.enter()
 		.append("div")
 		.attr("data-name",function(d){
-			if(counter2==names.length)
-				counter2 =0;
 			return d.comment_content;
 		})
 		.attr("data-img",function(d){
-			if(counter2==names.length)
-				counter2 =0;
 			return d.comment_pic;
 		})
 		.attr("class", "row")
