@@ -29,6 +29,7 @@ function getData(){
 	  .always(function() {
 	    console.log( "complete" );
 	  });
+
 }
 
 function draw(dataset){
@@ -46,22 +47,28 @@ function draw(dataset){
 				var comment_pic = dataset[counter]["comments"][i]["comment_pic"];
 				var offensive = dataset[counter]["comments"][i]["offensive"];
 				arr.push({size:2,comment_content:comment_content,comment_name:comment_name,comment_pic:comment_pic,offensive:offensive});
+				//arr.push({size:2,comment_pic:comment_pic, offensive:offensive});
 			}
 			counter++
 			return arr ;
 		})
 		.enter()
 		.append("div")
+		.attr("data-pic",function(d){
+			if(counter2==names.length)
+				counter2 =0;
+			return d.comment_pic;
+		} )
+		.attr("data-name",function(d){
+			if(counter2==names.length)
+				counter2 =0;
+			return d.comment_name;
+		} )
 		.attr("data-name",function(d){
 			if(counter2==names.length)
 				counter2 =0;
 			return d.comment_content;
-		})
-		.attr("data-img",function(d){
-			if(counter2==names.length)
-				counter2 =0;
-			return d.comment_pic;
-		})
+		} )
 		.attr("class", "row")
 		.style("height", function(d) {
 			var barHeight = d.size * 5;
@@ -70,19 +77,20 @@ function draw(dataset){
 		.style("background-color", function(d) {
 			if(d.offensive)
 				return "red";
-			return "#FFAE61";
+			return "blue";
 		});
 
 		$('div.row').bind('mouseenter',function(e){
 			var el = $(e.target);
+			$(el).html('<img src="' + $(el).attr("data-pic") +'" style="width:10px;height:10px;">')
+			.css("display","block");
 			$('.popup').html('<h1>' + $(el).attr("data-name") +'</h1>')
-			$('.popup').append('<img src="'+ $(el).attr("data-img") +'"">')
 			.css("display","block")
 			.css("top",function(){
-				return $(el).position().top+170;
+				return $('.popup').position().top+20;
 			})
 			.css("left",function(){
-				return $(el).position().left+870;
+				return $('.popup').position().left+20;
 			});
 		});
 
@@ -90,5 +98,8 @@ function draw(dataset){
 
 				$('.popup').css("display","none");
 
+
 		});
 }
+
+

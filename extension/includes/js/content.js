@@ -1,18 +1,20 @@
-function lightWords(element){
+function lightWords(element,callback){
 	var xhr = new XMLHttpRequest;
 	xhr.open("GET", chrome.runtime.getURL("data/words.json"));
 	xhr.onreadystatechange = function() {
 	  if (this.readyState == 4) {
-	    console.log("request finished, now parsing");
 	    window.json_text = xhr.responseText;
 	    window.parsed_json = JSON.parse(xhr.responseText);
 	    var iterate_offensive_counter = 0;
+
 	    $.each( window.parsed_json, function( key, val ) {
 	    	// REPLACE TEXT
+	    	var elementscount = 0;
   	 		$(element).replaceText(val.word, '<a href=\"https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%99%D7%9E%D7%95%D7%AA_%D7%A0%D7%92%D7%93_%D7%A0%D7%A9%D7%99%D7%9D\" style="color: red; display: inline;text-decoration: line-through;">'+val.word+'</a>', function(data){
   	 			// counters
   	 			offensive_counter+=data.length;
   	 			iterate_offensive_counter+=data.length;
+  	 			elementscount++;
   	 			// count word
   	 			if(shown_words_list[val.word] == null)
   	 				shown_words_list[val.word] = 0;
@@ -22,17 +24,16 @@ function lightWords(element){
   	 				console.log($(data[i]).closest('.UFIComment'));
   	 				$(data[i]).closest('.UFIComment').addClass('CatchYou');
   	 			}
-  	 			// at last make json and updateExtension
-  	 			if(key == window.parsed_json.length-1){
-  	 				updateExtension();
-  	 				if(iterate_offensive_counter>0)
-  	 				makeJson($(element).closest('.userContentWrapper'));
-  	 			}
+  	 			// last iterate
+	 			if(key == window.parsed_json.length-1 && $(element).length == elementscount){
+	 				if(iterate_offensive_counter>0){
+	 					callback(true);
+	 				}else{
+	 					callback(false);
+	 				}
+	 			}
   	 		});
-
 	    });
-
-
 	  }
 	};
 	xhr.send();
@@ -43,10 +44,10 @@ var shown_words_list = {};
 var offensive_counter = 0;
 function updateExtension(){
     chrome.runtime.sendMessage({offensive_counter: offensive_counter}, function(response) {
-	  //console.log(response.farewell);
+	  console.log('updates amount' + response.farewell);
 	});
     chrome.runtime.sendMessage({set_shown_words_list: shown_words_list}, function(response) {
-	 // console.log(response.farewell);
+	  console.log('updates shwon words' + response.farewell);
 	});
 }
 
@@ -61,6 +62,7 @@ function clearExtension(){
 
 
 function makeJson(selector){
+	console.log("make json..");
 	var json = {};
 	json['username'] = $(selector).find('h6 a , h5 a').html();
 	json['userimg'] = $(selector).find('._38vo img').attr('src');
@@ -80,84 +82,128 @@ function makeJson(selector){
 		jsoncomments.push(jsoncomment);
 	});
 	json['comments'] = jsoncomments;
-	json = JSON.stringify(json);
-	insertPost(json);
 	console.log(json);
+	insertPost(json);
 }
 
-function insertPost(json){
-  var http = new XMLHttpRequest();
-  var url = "https://nashim.herokuapp.com/addPost";
-  http.open("POST", url, true);
-
-  //Send the proper header information along with the request
-  http.setRequestHeader("Content-type", "application/json");
-
-  http.onreadystatechange = function() {//Call a function when the state changes.
-      if(http.readyState == 4 && http.status == 200) {
-          console.log('post success')
-      }
-      else{
-          console.log('error')
-      }
-  }
-  http.send(JSON.stringify(json));
+function insertPost(object){
+	console.log("insert json..");
+	$.ajax({
+	    type: "POST",
+	    url: "https://nashim.herokuapp.com/addPost",
+	    // The key needs to match your method's input parameter (case-sensitive).
+	    data: JSON.stringify(object),
+	    contentType: "application/json; charset=utf-8",
+	    dataType: "json",
+	    success: function(data){
+	    	console.log('Post: facebook post done!');
+	    },
+	    failure: function(errMsg) {
+	        console.log('Post: facebook post faild!');
+	    }
+	});
  }
+
+function eachPost(selector, callback){
+	console.log('eachPost')
+	$(selector).each(function(){
+		readPost($(this),callback);
+	});
+}
+
+
+function readPost(selector,callback){
+	var readPostIsOffensiveFound = false;
+	lightWords( $(selector).find('.userContent').children(),function(data){
+		if(data){
+			readPostIsOffensiveFound = true;
+		}
+		console.log("first....");
+	});
+	var comments = $(selector).find('.UFIComment');
+	$(comments).each(function(index){
+		if(index+1 == comments.length){
+			lightWords($(this).find('.UFICommentBody').children(),function(data){
+				console.log("last....");
+				if(data){
+					readPostIsOffensiveFound = true;
+				}
+				console.log('answare: ' + readPostIsOffensiveFound)
+				if(readPostIsOffensiveFound){
+					callback(data);
+				}
+			});
+		}else{
+			lightWords($(this).find('.UFICommentBody').children(),function(data){
+				console.log("middle");
+				if(data){
+					readPostIsOffensiveFound = true;
+				}
+			});
+		}
+		console.log("combdy: "+ $(this).find('.UFICommentBody').text());
+	});
+	console.log(comments);
+}
 
 $(document).ready(function(){
 
+	$(document).on("click", ".userContentWrapper", function(e) {
+		//console.log('hover:' + isHover);
+		console.log('click, hover: ' + isHover);
+		var posted = 0;
+		var userContentWrapper = $(e.target).closest('.userContentWrapper');
+		if(isHover){
+			$(userContentWrapper).find("div").css('background-color','#ffeded');
+			setTimeout(function(){
+				readPost(userContentWrapper,function(isOffensiveFound){
+								updateExtension();
+								makeJson($(userContentWrapper));
+								console.log("callback of scanning called..")
+						});
+			},5000);
+		}
+	});
+/*
 	setTimeout(function(){
-		eachPost('.userContentWrapper');
+		eachPost('.userContentWrapper',function(){updateExtension();});
 	},5000);
 
 	$(window).scroll(function() {
 	    if($(window).scrollTop() + $(window).height() == $(document).height()) {
 		   	setTimeout(function(){
-		    	eachPost('.userContentWrapper');
+		    	eachPost('.userContentWrapper',function(){updateExtension();});
 		    },5000);
 	   }
 	});
+*/
 
-	$('body').click(function(e){
-		var el = $(e.target).closest('.userContentWrapper');
-   		console.log('start scan this..');
-   		setTimeout(function(){
-   			readPost($(el));
-   		},5000);
+	var ctrlPressed = false;
+	var isHover = false;
+	$(window).keydown(function(evt) {
+	  if (evt.which == 16) { // ctrl
+	    ctrlPressed = true;
+	    console.log('ctrl pressed!');
 
-
+	    $('.userContentWrapper').bind('mouseover',function(e){
+			if(ctrlPressed){
+				var el = $(e.target).closest('.userContentWrapper');
+				$(el).css('border','4px solid red');
+				isHover = true;
+			}
+		}).bind('mouseleave',function(e){
+			var el = $(e.target).closest('.userContentWrapper');
+			$(el).css('border','1px solid');
+			$(el).css('border-color','#e5e6e9 #dfe0e4 #d0d1d5');
+			isHover = false;
+		});
+	  }
+	}).keyup(function(evt) {
+	  if (evt.which == 16) { // ctrl
+	    ctrlPressed = false;
+	    console.log('ctrl up!');
+	  }
 	});
-
-	function eachPost(selector){
-		console.log('eachPost')
-		$(selector).each(function(){
-			readPost($(this));
-		});
-	}
-
-	function readPost(selector){
-		var username = $(selector).find('h6 a , h5 a').html();
-		var userimg = $(selector).find('._38vo img').attr('src');
-		var posturl = $(selector).find('._5pcq').attr('href');
-		var userContent = $(selector).find('.userContent').html();
-		lightWords( $(selector).find('.userContent').children());
-		//console.log('user: '+ username + '\n img: ' + userimg
-		//	+ '\n url: ' + posturl + '\n userContent: ' + userContent);
-
-		var comments = $(selector).find('.UFIList .UFIComment');
-		$(comments).each(function(index){
-			var comment_name = $(this).find('.UFICommentActorName').text();
-			var comment_pic = $(this).find('.UFIActorImage').attr('src');
-			var comment_content = $(this).find('.UFICommentBody').text();
-			lightWords($(this).find('.UFICommentBody').children());
-			//console.log('comment_name: '+ comment_name + '\n comment_pic: ' + comment_pic
-			//	+ '\n comment_content: ' + comment_content);
-		});
-	}
-
-
-
-
 
 
 });
