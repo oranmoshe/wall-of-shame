@@ -1,15 +1,8 @@
+// This script displays all the images of the people that use offensive words
+
+
 $(document).ready(function() {
 
-<<<<<<< HEAD
-   var width = 30;
-   var height = 30;
-   for(var x = 0; x < width; x++) {
-       for(var y = 0; y < height; y++) {
-           var unit = $("<div class='unit'></div>");
-           unit.appendTo('#container');
-       }
-   }
-=======
   var width = 36;
   var height = 28;
   for(var x = 0; x < width; x++) {
@@ -18,8 +11,6 @@ $(document).ready(function() {
          unit.appendTo('#container');
      }
   }
->>>>>>> wallOfShame/master
-
 
 function getData(callback){
   // Assign handlers immediately after making the request,
@@ -39,23 +30,13 @@ function getData(callback){
 }
 
 
-	setInterval(function(){
-		var random = Math.floor((Math.random() * width*height-1) + 1);
-		console.log(random);
-<<<<<<< HEAD
-    	var all = $('#container').children();
-    	$(all).get(random)
-    	var listItem = $('#container');
-		$('#container :nth-child('+ random +')').css("background-image", 'url('+ images[0] +')' ).css("background-size", '20px');
-=======
+setInterval(function(){
+    var random = Math.floor((Math.random() * width*height-1) + 1);
+    console.log(random);
     var all = $('#container').children();
     $(all).get(random)
     var listItem = $('#container');
     getData(function(data){
-     $('#container :nth-child('+ random +')').css("background-image", 'url('+ data +')' ).css("background-size", '20px' );
-    })
-
->>>>>>> wallOfShame/master
-	}, 3000);
-
+    $('#container :nth-child('+ random +')').css("background-image", 'url('+ data +')' ).css("background-size", '20px' );
+    })}, 3000);
 });
