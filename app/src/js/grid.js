@@ -64,10 +64,22 @@
 ////       if ((d.click)%4 == 3 ) { d3.select(this).style("fill","#838690"); }
 ////    });
 $(document).ready(function() {
-    for(var x = 0; x < 36; x++) {
-        for(var y = 0; y < 28; y++) {
-            var unit = $("<div class='unit'></div>");
-            unit.appendTo('#container');
-        }
-    }
+
+   var width = 36;
+   var height = 28;
+   for(var x = 0; x < 36; x++) {
+       for(var y = 0; y < 28; y++) {
+           var unit = $("<div class='unit'></div>");
+           unit.appendTo('#container');
+       }
+   }
+	setInterval(function(){
+		var random = Math.floor((Math.random() * width*height-1) + 1);
+		console.log(random);
+    	var all = $('#container').children();
+    	$(all).get(random)
+    	var listItem = $('#container');
+		$('#container :nth-child('+ random +')').css("background-color","#000000");
+	}, 3000);
+
 });
