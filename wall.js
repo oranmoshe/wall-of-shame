@@ -42,22 +42,32 @@ function draw(dataset){
 		.data(function(){
 			var arr = [];
 			for (var i = dataset[counter]["comments"].length - 1; i >= 0; i--) {
-				//var comment_content = dataset[counter]["comments"][i]["comment_content"];
-				//var comment_name = dataset[counter]["comments"][i]["comment_name"];
+				var comment_content = dataset[counter]["comments"][i]["comment_content"];
+				var comment_name = dataset[counter]["comments"][i]["comment_name"];
 				var comment_pic = dataset[counter]["comments"][i]["comment_pic"];
-				//var offensive = dataset[counter]["comments"][i]["offensive"];
-				//arr.push({size:2,comment_content:comment_content,comment_name:comment_name,comment_pic:comment_pic,offensive:offensive});
-				arr.push({size:2,comment_pic:comment_pic});
+				var offensive = dataset[counter]["comments"][i]["offensive"];
+				arr.push({size:2,comment_content:comment_content,comment_name:comment_name,comment_pic:comment_pic,offensive:offensive});
+				//arr.push({size:2,comment_pic:comment_pic, offensive:offensive});
 			}
 			counter++
 			return arr ;
 		})
 		.enter()
 		.append("div")
-		.attr("data-name",function(d){
+		.attr("data-pic",function(d){
 			if(counter2==names.length)
 				counter2 =0;
 			return d.comment_pic;
+		} )
+		.attr("data-name",function(d){
+			if(counter2==names.length)
+				counter2 =0;
+			return d.comment_name;
+		} )
+		.attr("data-name",function(d){
+			if(counter2==names.length)
+				counter2 =0;
+			return d.comment_content;
 		} )
 		.attr("class", "row")
 		.style("height", function(d) {
@@ -72,14 +82,15 @@ function draw(dataset){
 
 		$('div.row').bind('mouseenter',function(e){	
 			var el = $(e.target);
-			$(el).html('<img src="' + $(el).attr("data-name") +'" style="width:10px;height:10px;">')
-			//$('.popup').html('<h1>' + $(el).attr("data-name") +'</h1>')
+			$(el).html('<img src="' + $(el).attr("data-pic") +'" style="width:10px;height:10px;">')
+			.css("display","block");
+			$('.popup').html('<h1>' + $(el).attr("data-name") +'</h1>')
 			.css("display","block")
 			.css("top",function(){
-				return $(el).position().top+20;
+				return $('.popup').position().top+20;
 			})
 			.css("left",function(){
-				return $(el).position().left+20;
+				return $('.popup').position().left+20;
 			});
 		});
 
@@ -90,3 +101,5 @@ function draw(dataset){
 
 		});
 }
+
+
