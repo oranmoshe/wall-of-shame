@@ -41,7 +41,7 @@ article.boxes_r{
 }
 h1{
     color: #0D004C;
-    font-size: 52px;
+    font-size: 45px;
     font-family: MEODED-SERIF_OEBOLD;
     text-decoration: none;
     position: relative;
@@ -110,6 +110,7 @@ footer{
 	/* Rules below not implemented in browsers yet */
 	-o-user-select: none;
 	user-select: none;
+    cursor: pointer;
 }
 .arrows{
 	position: fixed;
