@@ -1,16 +1,29 @@
 
 function init(){
-	getData();
+	setCategories();
 }
 
-function getData(){
+function setCategories(){
+	var categories = ["הצינור","(הצל) the shadow","וואלה! ספורט","וואלה! חדשות"];
+	for (var i = 0; i < categories.length; i++) {
+		$('main ul').append('<li><div class="data-title">'+ categories[i] +'</div><div class="data"></div></li>');
+		getData(categories[i],i+1,function(data,children){
+		    console.log('iterator=' + children);
+			draw(data,'ul li:nth-child('+children+') .data');
+		});
+
+
+	}
+}
+
+function getData(username,children,callback){
 	// Assign handlers immediately after making the request,
 	// and remember the jqxhr object for this request
-	var jqxhr = $.getJSON( "http://nashim.herokuapp.com/getPostsByUser/הצינור", function() {
+	var jqxhr = $.getJSON('http://nashim.herokuapp.com/getPostsByUser/'+username, function() {
 	  console.log( "success" );
 	})
 	  .done(function(data) {
-	  	draw(data)
+	  	callback(data,children);
 	  })
 	  .fail(function() {
 	    console.log( "error" );
@@ -20,9 +33,9 @@ function getData(){
 	  });
 }
 
-function draw(dataset){
+function draw(dataset, selector){
 	var counter = 0;
-	d3.select("main").selectAll("section")
+	d3.select(selector).selectAll("section")
 		.data(dataset)
 		.enter()
 		.append("section")
@@ -51,25 +64,35 @@ function draw(dataset){
 		.attr("class", "row")
 		.style("height", function(d) {
 			var barHeight = d.size * 5;
+			if(d.comment_content.length >150)
+				barHeight = d.size * 5 * 2;
 			return barHeight + "px";
 		})
-		.style("background-color", function(d) {
+		.attr('data-offensive',function(d) {
 			if(d.offensive)
-				return "red";
-			return "#FFAE61";
+				return "true";
+			return "false"
 		});
 
 		$('div.row').bind('mouseenter',function(e){
 			var el = $(e.target);
-			$('.popup').html('<h1>' + $(el).attr("data-name") +'</h1>')
-			$('.popup').append('<img src="'+ $(el).attr("data-img") +'"">')
-			.css("display","block")
-			.css("top",function(){
-				return $(el).position().top+170;
-			})
-			.css("left",function(){
-				return $(el).position().left+870;
-			});
+			if($(el).attr("data-offensive")=="true"){
+				setTimeout(function() {
+					$('.popup')
+					.css('background-image','url('+ $(el).attr("data-img") +')')
+					.css('background-size','100px')
+					.css("display","block")
+					.css("top",function(){
+						return $(el).position().top+120;
+					})
+					.css("left",function(){
+						return $(el).position().left-20;
+					});
+					getOffensiveWords($(el).attr("data-img"),function(data){
+						$('.popup').append(data);
+					})
+				}, 1000);
+			}
 		});
 
 		$('div.row').bind('mouseleave',function(e){
@@ -77,4 +100,19 @@ function draw(dataset){
 				$('.popup').css("display","none");
 
 		});
+
+		function getOffensiveWords(text,callback){
+			var xhr = new XMLHttpRequest;
+			xhr.open("GET", "data/words.json");
+			xhr.onreadystatechange = function() {
+			  if (this.readyState == 4) {
+			    window.json_text = xhr.responseText;
+			    window.parsed_json = JSON.parse(xhr.responseText);
+			    $.each( window.parsed_json, function( key, val ) {
+
+			    });
+			  }
+			};
+			xhr.send();
+		}
 }

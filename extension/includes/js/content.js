@@ -77,7 +77,10 @@ function makeJson(selector){
 		else
 			jsoncomment['offensive'] = false;
 		jsoncomment['comment_name'] = $(this).find('.UFICommentActorName').text();
-		jsoncomment['comment_pic'] = $(this).find('.UFIActorImage').attr('src');
+		var a = 'http://graph.facebook.com/';
+		var b = '/picture?type=large';
+		var image = a+getParameterByName("id",'http://'+$(this).find('.UFIImageBlockImage').attr('data-hovercard'))+b;
+		jsoncomment['comment_pic'] = image;
 		jsoncomment['comment_content'] = $(this).find('.UFICommentBody').text();
 		jsoncomments.push(jsoncomment);
 	});
@@ -103,6 +106,18 @@ function insertPost(object){
 	    }
 	});
  }
+
+ function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 function eachPost(selector, callback){
 	console.log('eachPost')
