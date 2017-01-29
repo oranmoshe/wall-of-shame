@@ -4,15 +4,14 @@ function init(){
 }
 
 function setCategories(){
-	var categories = ["הצינור","(הצל) the shadow","וואלה! ספורט","וואלה! חדשות"];
+	var categories = ["הצינור","(הצל) the shadow","וואלה! ספורט","וואלה! חדשות","וואלה! סלבס","גיא פינס","mako","nana10","0404"];
 	for (var i = 0; i < categories.length; i++) {
 		$('main ul').append('<li><div class="data-title">'+ categories[i] +'</div><div class="data"></div></li>');
 		getData(categories[i],i+1,function(data,children){
 		    console.log('iterator=' + children);
+		    console.log(data);
 			draw(data,'ul li:nth-child('+children+') .data');
 		});
-
-
 	}
 }
 
@@ -83,22 +82,25 @@ function draw(dataset, selector){
 					.css('background-size','100px')
 					.css("display","block")
 					.css("top",function(){
-						return $(el).position().top+120;
+						return $(el).position().top+10;
 					})
 					.css("left",function(){
-						return $(el).position().left-20;
+						return $(el).position().left+10;
 					});
-					getOffensiveWords($(el).attr("data-img"),function(data){
-						$('.popup').append(data);
+					getOffensiveWords($(el).attr("data-name"),function(data){
+						$('.popup').html('<div>'+data+'</div>')
+						.css('border-color',$(el).css('background-color'));
+						$('.popup div , .popup')
+						.css('background-color',$(el).css('background-color'))
 					})
-				}, 1000);
+				}, 500);
 			}
 		});
-
-		$('div.row').bind('mouseleave',function(e){
-
-				$('.popup').css("display","none");
-
+		$('.popup').bind('mouseenter',function(e){
+			$(this).css("display","block");
+		});
+		$('.popup').bind('mouseleave',function(e){
+				$(this).css("display","none");
 		});
 
 		function getOffensiveWords(text,callback){
@@ -108,11 +110,45 @@ function draw(dataset, selector){
 			  if (this.readyState == 4) {
 			    window.json_text = xhr.responseText;
 			    window.parsed_json = JSON.parse(xhr.responseText);
+			    var elementscount = 0;
+			    var shown = new Array();
 			    $.each( window.parsed_json, function( key, val ) {
-
+		  	 		if(text.includes(val.word)){
+		  	 			callback(val.word);
+		  	 		}
 			    });
 			  }
 			};
 			xhr.send();
+		}
+
+		$(".next").bind('click',function(event){
+			 event.preventDefault();
+			move(1);
+		});
+		$(".back").bind('click',function(event){
+			 event.preventDefault();
+			move(0);
+		});
+		function move(step){
+			var allWidth = 0;
+			$('.waterfall > li').each(function(){
+		        allWidth += parseInt($(this).width());
+		    });
+			var margin = parseInt($('.waterfall').css('margin-right'));
+			var waterfall = parseInt($('.waterfall').css('width'));
+			var main = parseInt($('main section').css('width'));
+			console.log(allWidth-main+ " " +margin + " " +waterfall+ " >" + main);
+			if(step){
+				if(Math.abs(allWidth-main)>Math.abs(margin)){
+					$('.waterfall').stop().animate({'margin-right':margin-200},1000);
+				}else{
+
+				}
+			}else{
+				if(margin<0){
+					$('.waterfall').stop().animate({'margin-right':margin+200},1000);
+				}
+			}
 		}
 }

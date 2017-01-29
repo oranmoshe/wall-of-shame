@@ -15,6 +15,11 @@ function bubbleChart() {
     female: { x: 2 * width / 3, y: height / 2 }
   };
 
+  // X locations of the year titles.
+    var genderTitleX = {
+        male: width / 2.5,
+        female: width - 270
+    };
 
   // Used when setting up force and
   // moving around nodes
@@ -159,9 +164,8 @@ function bubbleChart() {
             .attr('y', function (d) { return d.y; })
             .text( function (d) { return (d.word); })
             .attr("text-anchor", "middle") // set anchor y justification
-            .attr("font-family", "MEODED-SERIF_OEREGULAR")
-            .attr("font-size", "22px")
-            .attr("fill", "#0D004C");
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "10px");
 
     // Fancy transition to make bubbles appear, ending with the
     // correct radius

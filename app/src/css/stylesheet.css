@@ -1,0 +1,142 @@
+@font-face {
+    font-family: MEODED-SERIF_OEBOLD;
+    src: url("./fonts/MEODED-SERIF_OEBOLD.OTF") format("opentype");
+}
+@font-face {
+    font-family: SABON-LT-ITALIC;
+    src: url("./fonts/SABON-LT-ITALIC.TTF");
+}
+@font-face {
+    font-family: MEODED-SERIF_OEREGULAR;
+    src: url("./fonts/MEODED-SERIF_OEREGULAR.OTF");
+}
+html,body{
+	text-align: right;
+	direction: rtl;
+	background-color: #fff4e7;
+}
+header{
+	position: relative;
+	padding-top: 80px;
+	overflow: auto;
+}
+header::after{
+	clear: both;
+}
+article.boxes_l{
+	background-image: url(../../src/images/left_boxes.png);
+	width: 61px;
+	height: 122px;
+	position: absolute;
+	top: 60px;
+	left: 40px;
+}
+article.boxes_r{
+	background-image: url(../../src/images/right_boxes.png);
+	width: 58px;
+	height: 61px;
+	position: absolute;
+	top: 60px;
+	right: 40px;
+}
+h1{
+    color: #0D004C;
+    font-size: 52px;
+    font-family: MEODED-SERIF_OEBOLD;
+    text-decoration: none;
+    position: relative;
+	float: right;
+	margin-right: 100px;
+}
+h2{
+	font-size: 40px;
+    color: #525b86;
+    font-weight: normal;
+    font-family: MEODED-SERIF_OEREGULAR;
+    position: relative;
+	float: left;
+	margin-left: 150px;
+}
+main{
+	min-height: 400px;
+}
+main::after{
+	clear: both;
+}
+main > article{
+	margin-right: 100px;
+	width: 300px;
+	min-height: 400px;
+	float: right;
+	color: #0D004C;
+	font-family: MEODED-SERIF_OEREGULAR;
+    line-height: 21px;
+    margin-top: 20px;
+}
+main > article p:nth-child(1){
+	color: #0D004C;
+}
+main > article p:nth-child(2){
+	color: #525b86;
+}
+main > section{
+	margin-right:30px;
+	margin-left: 100px;
+	width: calc(100% - 530px);
+	min-height: 400px;
+	float: right;
+	overflow: hidden;
+}
+
+footer{
+	position: fixed;
+	bottom: 100px;
+	margin-right: 100px;
+	margin-top: 40px;
+	color: #525b86;
+    font-family: MEODED-SERIF_OEREGULAR;
+    line-height: 21px;
+}
+.more{
+	color: #525b86;
+	font-size: 15px;
+	line-height: 15px;
+}
+.more span{
+	font-size: 10px;
+	-webkit-user-select: none; /* Chrome/Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
+.arrows{
+	position: fixed;
+	left: 150px;
+	bottom: 100px;
+	font-size: 60px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.arrows div{
+	float: left;
+
+}
+.arrows a{
+	color: #0d004c;
+}
+.arrows::after{
+	clear: both;
+}
+.arrows_r a{
+	text-decoration: none;
+}
+.arrows_r a:hover{
+	color: #F44F2F;
+}
+.arrows_l a{
+	text-decoration: none;
+}
+.arrows_l a:hover{
+	color: #F44F2F;
+}

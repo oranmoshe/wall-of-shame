@@ -1,10 +1,6 @@
-// This script displays all the images of the people that use offensive words
-
-
 $(document).ready(function() {
-
-  var width = 36;
-  var height = 28;
+  var width = 42;
+  var height = 42;
   for(var x = 0; x < width; x++) {
      for(var y = 0; y < height; y++) {
          var unit = $("<div class='unit'></div>");
@@ -29,7 +25,6 @@ function getData(callback){
     });
 }
 
-
 setInterval(function(){
     var random = Math.floor((Math.random() * width*height-1) + 1);
     console.log(random);
@@ -38,5 +33,16 @@ setInterval(function(){
     var listItem = $('#container');
     getData(function(data){
     $('#container :nth-child('+ random +')').css("background-image", 'url('+ data +')' ).css("background-size", '20px' );
-    })}, 3000);
+    var x = $('#container :nth-child('+ random +')').position().left-90;
+    var y = $('#container :nth-child('+ random +')').position().top-90;
+    var faded = $('<div class="faded" style="display:none"></div>');
+    $('body').append(faded)
+    $(faded).css("top",y).css("left",x).css("background-image", 'url('+ data +')' ).css("background-size", '200px');
+    $(faded).fadeIn(1500,function(){
+       setTimeout(function(){
+        $(faded).fadeOut(2000);
+       },4000)
+    });
+
+    })}, 2000);
 });
