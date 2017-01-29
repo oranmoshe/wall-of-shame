@@ -1,0 +1,42 @@
+.unit{
+    background-color: red;
+    width:22px;
+    height: 22px;
+    float: right;
+    margin: 1px;
+}
+main{
+    overflow: hidden;
+}
+main section{
+    margin: initial;
+    width:100%;
+    margin-bottom: -23px;
+}
+.faded{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+@media screen and (min-width: 320px) {
+    footer{
+        bottom: initial;
+        position: relative;
+    }
+    .arrows{
+        position: relative; 
+        bottom: initial;  
+    }
+}
+@media screen and (min-width: 600px) {
+    footer{
+        bottom: initial;
+        position: relative;
+    }
+    .arrows{
+     position: relative;  
+     bottom: initial; 
+    }
+}
+@media screen and (min-width: 900px) {
+}
