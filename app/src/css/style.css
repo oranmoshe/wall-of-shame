@@ -249,37 +249,7 @@ footer {
     text-decoration: none;
     color: #F44F2F;
 }
-div.row {
-    top: 0px;
-    display: block;
-    margin-bottom: 2px;
-    width: 10px;
-    margin-right: 2px;
-    background-color: teal;
-}
-section{
-    overflow: auto;
-}
 
-section.column {
-	display: block;
-    float: right;
-    width: 10px;
-    margin-right: 2px;
-    background-color: #fff;
-    overflow: auto;
-    position: relative;
-    top: 171px;
-    right: 30%;
-}
-
-.popup{
-	width: 100px;
-	height: 200px;
-	position: absolute;
-	background-color: red;
-	display: none;
-}
 
 .breakTheWall footer {
     position: fixed;

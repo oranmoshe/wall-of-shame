@@ -1,13 +1,10 @@
-body{
-	position: relative;
-	top: 0px;
-}
+
 div.row {
     top: 0px;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 1px;
     width: 10px;
-    margin-right: 2px;
+    margin-left: 1px;
     background-color: teal;
 }
 section{
@@ -16,16 +13,84 @@ section{
 
 section.column {
 	display: block;
-    float: left;
-    width: 10px;
-    margin-right: 2px;
-    background-color: black;
+    float: right;
     overflow: auto;
 }
+main{
+    width: initial;
+    margin-top: 80px;
+    margin-right: 350px;
+    overflow: auto;
+}
+main ul{
+    list-style: none;
+}
+main ul::after{
+    clear: both;
+}
+main ul li{
+    float: right;
+}
+main ul li::after{
+    clear: both;
+}
+.data-title{
+    font-family: MEODED-SERIF_OEREGULAR;
+    font-weight: bold;
+    font-size: 22px;
+    height: 40px;
+    line-height: 40px;
+    padding-right: 10px;
+    text-align: right;
+}
+li:nth-child(1) .data section .row{
+    background-color: rgb(255,0,0);
+}
+li:nth-child(1) .data-title,li:nth-child(1) .data section .row[data-offensive=false]{
+    background-color: rgba(255,0,0,0.3);
+    color: rgba(255,0,0,1);
+}
+li:nth-child(1) .data section:hover .row[data-offensive=false]{
+    background-color: rgba(255,0,0,0.6);
+}
+
+li:nth-child(2) .data section .row{
+    background-color: rgb(97,174,58);
+}
+li:nth-child(2) .data-title,li:nth-child(2) .data section .row[data-offensive=false]{
+    background-color: rgba(97,174,58,0.3);
+    color: rgba(97,174,58,1);
+}
+li:nth-child(2) .data section:hover .row[data-offensive=false]{
+    background-color: rgba(97,174,58,0.6);
+}
+
+li:nth-child(3) .data section .row{
+    background-color: rgb(82,92,135);
+}
+li:nth-child(3) .data-title,li:nth-child(3) .data section .row[data-offensive=false]{
+    background-color: rgba(82,92,135,0.3);
+    color: rgba(82,92,135,1);
+}
+li:nth-child(3) .data section:hover .row[data-offensive=false]{
+    background-color: rgba(82,92,135,0.6);
+}
+
+li:nth-child(4) .data section .row{
+    background-color: rgb(114,0,77);
+}
+li:nth-child(4) .data-title,li:nth-child(4) .data section .row[data-offensive=false]{
+    background-color: rgba(114,0,77,0.3);
+    color: rgba(114,0,77,1);
+}
+li:nth-child(4) .data section:hover .row[data-offensive=false]{
+    background-color: rgba(114,0,77,0.6);
+}
+
 
 .popup{
-	width: 300px;
-	height: 400px;
+	width: 101px;
+	height: 120px;
 	position: absolute;
 	background-color: red;
 	display: none;
